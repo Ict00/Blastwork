@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "blastwork:explosive_barrel",
+    "blastwork:fire_explosive_barrel",
+    "blastwork:fluid_barrel",
+    "blastwork:instant_explosive_barrel",
+    "blastwork:directed_explosive_barrel",
+    "blastwork:golden_explosive_barrel"
+  ]
+}

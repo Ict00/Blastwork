@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ABA",
+    " X "
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    },
+    "A": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "blastwork:empty_explosive_shell"
+    }
+  },
+  "result": {
+    "id": "blastwork:impact_explosive_shell",
+    "count": 1
+  }
+}

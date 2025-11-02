@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XAX",
+    "VBV",
+    "XCX"
+  ],
+  "key": {
+    "X": {
+      "item": "iron_nugget"
+    },
+    "A": {
+      "item": "minecraft:redstone_torch"
+    },
+    "B": {
+      "tag": "minecraft:buttons"
+    },
+    "C": {
+      "tag": "minecraft:planks"
+    },
+    "V": {
+      "item": "iron_ingot"
+    }
+  },
+  "result": {
+    "id": "blastwork:detonator",
+    "count": 1
+  }
+}

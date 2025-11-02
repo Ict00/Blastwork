@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XXX",
+    "BAB",
+    "XBX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "minecraft:redstone_block"
+    },
+    "A": {
+      "item": "blastwork:explosive_barrel"
+    }
+  },
+  "result": {
+    "id": "blastwork:instant_explosive_barrel",
+    "count": 1
+  }
+}
