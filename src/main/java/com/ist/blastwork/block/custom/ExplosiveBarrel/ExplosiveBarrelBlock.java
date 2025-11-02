@@ -1,6 +1,8 @@
 package com.ist.blastwork.block.custom.ExplosiveBarrel;
 
+import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlockEntities;
+import com.ist.blastwork.block.custom.Explosive.GunpowderCharge;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -27,6 +29,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.neoforged.neoforge.common.Tags;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -106,9 +109,9 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
     protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity) {
             if (!stack.isEmpty()) {
-                if (stack.is(Items.FLINT_AND_STEEL)) {
+                if (stack.is(Tags.Items.TOOLS_IGNITER)) {
                     if(entity.setOff()) {
-                        if (!level.isClientSide)
+                        if (!level.isClientSide && stack.isDamageableItem() && !player.isCreative())
                             stack.hurtAndBreak(1, (ServerLevel) level, player, (x) -> { });
                         return ItemInteractionResult.SUCCESS;
                     }
@@ -116,7 +119,9 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                         return ItemInteractionResult.FAIL;
                     }
                 }
-                else if (stack.is(Items.GUNPOWDER)) {
+                else if (GunpowderCharge.getCharge(stack) != 0) {
+                    int insert = GunpowderCharge.getCharge(stack);
+
                     if (entity.reachedMaxCharge()) {
                         level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 1.0F, 1.0F);
                         player.displayClientMessage(Component.translatable("blastwork.reached_max_charge", entity.maxCharge).withColor(0xFF0000), true);
@@ -124,8 +129,9 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                     }
 
                     level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.6F, 1.0F);
-                    int shrinkAmount = entity.tryInsert(1);
-                    stack.shrink(shrinkAmount);
+                    entity.tryInsert(insert);
+                    if (!player.isCreative())
+                        stack.shrink(1);
                     return ItemInteractionResult.SUCCESS;
                 }
 

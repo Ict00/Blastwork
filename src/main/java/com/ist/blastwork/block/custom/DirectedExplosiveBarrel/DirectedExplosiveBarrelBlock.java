@@ -29,7 +29,7 @@ public class DirectedExplosiveBarrelBlock extends ExplosiveBarrelBlock {
 
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new DirectedExplosiveBarrelBlockEntity(pos, state, 16, 100);
+        return new DirectedExplosiveBarrelBlockEntity(pos, state, 32, 100);
     }
 
     @Override

@@ -16,7 +16,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 
 public class InstantExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
-
     public InstantExplosiveBarrelBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
         super(ModBlockEntities.INSTANT_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
     }
@@ -56,5 +55,10 @@ public class InstantExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntit
     @Override
     public void tick(Level level, BlockPos pos, BlockState state) {
         super.tick(level, pos, state);
+    }
+
+    @Override
+    public void explode() {
+        super.explode();
     }
 }

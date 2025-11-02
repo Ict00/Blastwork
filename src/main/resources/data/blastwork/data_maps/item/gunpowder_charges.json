@@ -1,0 +1,13 @@
+{
+  "values": {
+    "minecraft:gunpowder": {
+      "charge": 1
+    },
+    "blastwork:filled_explosive_shell": {
+      "charge": 4
+    },
+    "blastwork:creative_filled_explosive_shell": {
+      "charge": 256
+    }
+  }
+}

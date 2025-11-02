@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:gunpowder"
+    },
+    "B": {
+      "item": "blastwork:empty_explosive_shell"
+    }
+  },
+  "result": {
+    "id": "blastwork:filled_explosive_shell",
+    "count": 1
+  }
+}

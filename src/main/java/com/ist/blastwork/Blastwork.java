@@ -7,6 +7,7 @@ import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItemWrapper;
 import com.ist.blastwork.entity.ModEntityTypes;
 import com.ist.blastwork.item.ModItems;
 import com.ist.blastwork.other.ModData;
+import com.ist.blastwork.other.ModDataMaps;
 import com.ist.blastwork.other.ModSounds;
 import com.ist.blastwork.other.ModStuff;
 import net.minecraft.client.Minecraft;
@@ -15,6 +16,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.InputEvent;
+import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -48,6 +50,7 @@ public class Blastwork {
         ModItems.register(modEventBus);
 
         modEventBus.addListener(this::registerCapabilityProvider);
+        modEventBus.addListener(this::registerDataMapTypes);
 
         NeoForge.EVENT_BUS.register(this);
 
@@ -56,6 +59,10 @@ public class Blastwork {
 
     private void commonSetup(FMLCommonSetupEvent event) {
         // Some common setup code
+    }
+
+    private void registerDataMapTypes(RegisterDataMapTypesEvent event) {
+        event.register(ModDataMaps.CHARGES_MAP);
     }
 
 

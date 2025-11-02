@@ -19,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.neoforged.neoforge.common.Tags;
 
 import static com.ist.blastwork.other.ModData.SET_TIME_ON_EXPLODE_DATA;
 import static com.ist.blastwork.other.ModData.TIME_LEFT_TO_EXPLODE_DATA;

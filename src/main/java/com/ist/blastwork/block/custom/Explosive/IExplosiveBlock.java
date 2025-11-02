@@ -1,4 +1,4 @@
-package com.ist.blastwork.block.custom;
+package com.ist.blastwork.block.custom.Explosive;
 
 public interface IExplosiveBlock {
     public boolean setOff();

@@ -27,9 +27,10 @@ public class ModStuff {
                         output.accept(ModItems.FLUID_BARREL_ITEM);
                         output.accept(ModItems.DETONATOR);
                         output.accept(ModItems.EMPTY_EXPLOSIVE_SHELL);
-                        output.accept(ModItems.FILLED_EXPLOSIVE_SHELL);
                         output.accept(ModItems.IMPACT_EXPLOSIVE_SHELL);
                         output.accept(ModItems.TIMED_EXPLOSIVE_SHELL);
+                        output.accept(ModItems.FILLED_EXPLOSIVE_SHELL);
+                        output.accept(ModItems.CREATIVE_FILLED_EXPLOSIVE_SHELL);
                         output.accept(Items.GUNPOWDER);
                     })
                     .build());

@@ -58,62 +58,63 @@ public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEnti
         setCharge(0);
         setChanged();
 
-        int goal = temp * 3;
-        int changeX = 0, changeY = 0, changeZ = 0;
+        if (!level.isClientSide) {
+            int changeX = 0, changeY = 0, changeZ = 0;
 
-        BlockState state = level.getBlockState(getBlockPos());
+            BlockState state = level.getBlockState(getBlockPos());
 
-        if (state.hasProperty(BlockStateProperties.FACING)) {
-            Direction direction = state.getValue(BlockStateProperties.FACING);
-            switch (direction) {
-                case DOWN:
-                    changeY = -1;
-                    break;
-                case UP:
-                    changeY = 1;
-                    break;
-                case WEST:
-                    changeX = -1;
-                    break;
-                case EAST:
-                    changeX = 1;
-                    break;
-                case NORTH:
-                    changeZ = -1;
-                    break;
-                case SOUTH:
-                    changeZ = 1;
-                    break;
+            if (state.hasProperty(BlockStateProperties.FACING)) {
+                Direction direction = state.getValue(BlockStateProperties.FACING);
+                switch (direction) {
+                    case DOWN:
+                        changeY = -1;
+                        break;
+                    case UP:
+                        changeY = 1;
+                        break;
+                    case WEST:
+                        changeX = -1;
+                        break;
+                    case EAST:
+                        changeX = 1;
+                        break;
+                    case NORTH:
+                        changeZ = -1;
+                        break;
+                    case SOUTH:
+                        changeZ = 1;
+                        break;
+                }
             }
+
+            int add = temp/20;
+            if (add == 0) {
+                add = 1;
+            }
+
+            float x = pos.getX(), y = pos.getY(), z = pos.getZ();
+
+            for (int i = 1; i <= temp/2; i += add) {
+                x = i * changeX;
+                y = i * changeY;
+                z = i * changeZ;
+
+                level.explode(
+                        null,
+                        Explosion.getDefaultDamageSource(level, null),
+                        null,
+                        pos.getX() + x,
+                        pos.getY() + y,
+                        pos.getZ() + z,
+                        Math.max(2.5f, (i/3f)),
+                        false,
+                        Level.ExplosionInteraction.TNT,
+                        ParticleTypes.EXPLOSION,
+                        ParticleTypes.EXPLOSION_EMITTER,
+                        ModSounds.SOUND_PLACEHOLDER);
+            }
+
+            level.removeBlock(pos, false);
         }
-
-        int add = temp/10;
-        if (add == 0) {
-            add = 1;
-        }
-
-        float x = pos.getX(), y = pos.getY(), z = pos.getZ();
-
-        for (int i = 1; i <= temp; i += add) {
-            x = i * changeX;
-            y = i * changeY;
-            z = i * changeZ;
-
-            level.explode(
-                    null,
-                    Explosion.getDefaultDamageSource(level, null),
-                    null,
-                    pos.getX() + x,
-                    pos.getY() + y,
-                    pos.getZ() + z,
-                    (i/3f),
-                    false,
-                    Level.ExplosionInteraction.TNT,
-                    ParticleTypes.EXPLOSION,
-                    ParticleTypes.EXPLOSION_EMITTER,
-                    ModSounds.SOUND_PLACEHOLDER);
-        }
-
-        level.removeBlock(pos, false);
     }
 }

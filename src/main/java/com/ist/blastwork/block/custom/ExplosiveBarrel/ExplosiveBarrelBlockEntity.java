@@ -1,7 +1,7 @@
 package com.ist.blastwork.block.custom.ExplosiveBarrel;
 
 import com.ist.blastwork.block.ModBlockEntities;
-import com.ist.blastwork.block.custom.IExplosiveBlock;
+import com.ist.blastwork.block.custom.Explosive.IExplosiveBlock;
 import com.ist.blastwork.other.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
@@ -43,7 +43,7 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
     }
 
     public final boolean reachedMaxCharge() {
-        return charge == maxCharge;
+        return charge >= maxCharge;
     }
 
     public final int tryInsert(int x) {

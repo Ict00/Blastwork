@@ -1,8 +1,6 @@
 package com.ist.blastwork.item.Detonator;
 
-import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlock;
-import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
-import com.ist.blastwork.block.custom.IExplosiveBlock;
+import com.ist.blastwork.block.custom.Explosive.IExplosiveBlock;
 import com.ist.blastwork.item.ModItems;
 import com.ist.blastwork.other.ModData;
 import net.minecraft.core.BlockPos;
@@ -22,7 +20,6 @@ import org.joml.Vector3f;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class DetonatorItem extends Item {
     public DetonatorItem(Properties properties) {
