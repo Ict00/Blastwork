@@ -1,6 +1,5 @@
-package com.ist.blastwork.item.FilledExplosiveShell;
+package com.ist.blastwork.item.FilledShell;
 
-import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlocks;
 import com.ist.blastwork.block.custom.FireExplosiveBarrel.FireExplosiveBarrelBlockEntity;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockEntity;
@@ -12,13 +11,12 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.block.TntBlock;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.common.Tags;
 
-public class FilledExplosiveShellItem extends Item {
+public class FilledShellItem extends Item {
 
-    public FilledExplosiveShellItem(Properties properties) {
+    public FilledShellItem(Properties properties) {
         super(properties);
     }
 

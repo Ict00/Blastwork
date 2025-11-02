@@ -3,10 +3,10 @@
     "minecraft:gunpowder": {
       "charge": 1
     },
-    "blastwork:filled_explosive_shell": {
+    "blastwork:charged_shell": {
       "charge": 4
     },
-    "blastwork:creative_filled_explosive_shell": {
+    "blastwork:creative_charged_shell": {
       "charge": 256
     }
   }

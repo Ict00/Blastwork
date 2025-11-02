@@ -13,10 +13,6 @@
         {
           "type": "minecraft:item",
           "name": "blastwork:fluid_barrel"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "blastwork:filled_explosive_shell"
         }
       ],
       "rolls": 1.0

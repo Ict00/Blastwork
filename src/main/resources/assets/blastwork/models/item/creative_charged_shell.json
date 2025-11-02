@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "blastwork:item/creative_filled_explosive_shell"
+    "layer0": "blastwork:item/creative_charged_shell"
   }
 }
