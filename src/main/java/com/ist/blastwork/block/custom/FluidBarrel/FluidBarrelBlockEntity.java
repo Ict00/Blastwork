@@ -1,5 +1,6 @@
 package com.ist.blastwork.block.custom.FluidBarrel;
 
+import com.ist.blastwork.Config;
 import com.ist.blastwork.block.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -22,7 +23,7 @@ import javax.annotation.Nullable;
 public class FluidBarrelBlockEntity extends BlockEntity {
     private final BlockCapabilityCache<IFluidHandler, Direction>[] capabilityCaches = new BlockCapabilityCache[6];
 
-    protected FluidTank tank = new FluidTank(5000) {
+    protected FluidTank tank = new FluidTank(Config.FLUID_BARREL_CAPACITY.get()) {
         @Override
         protected void onContentsChanged() {
             setChanged();
@@ -57,6 +58,8 @@ public class FluidBarrelBlockEntity extends BlockEntity {
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
+        if (!Config.FLUID_BARREL_FLUID_MOVEMENT.get()) return;
+
         var belowPos = pos.atY(pos.getY()-1);
 
         if (level.getBlockEntity(pos) instanceof FluidBarrelBlockEntity thisEntity && level.getBlockEntity(belowPos) instanceof FluidBarrelBlockEntity belowEntity) {

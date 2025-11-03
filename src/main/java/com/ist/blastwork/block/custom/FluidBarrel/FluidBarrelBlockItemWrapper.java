@@ -1,6 +1,7 @@
 package com.ist.blastwork.block.custom.FluidBarrel;
 
 import com.ist.blastwork.Blastwork;
+import com.ist.blastwork.Config;
 import com.ist.blastwork.item.ModItems;
 import com.ist.blastwork.other.FluidStackComponent;
 import com.ist.blastwork.other.ModData;
@@ -21,14 +22,23 @@ public class FluidBarrelBlockItemWrapper implements IFluidHandlerItem {
         this.given = given;
     }
 
+    private static int getCCap() {
+        return Config.FLUID_BARREL_CAPACITY.get();
+    }
+
     private FluidStack fluid() {
         FluidStackComponent component = given.getOrDefault(ModData.FLUID_DATA, FluidStackComponent.empty());
         return component.toFluidStack();
     }
 
     private void setFluid(FluidStack stack) {
-        given.set(DataComponents.DAMAGE, 5000 - stack.getAmount() == 0 ? 1 : 5000 - stack.getAmount());
-        given.set(DataComponents.MAX_DAMAGE, 5000);
+        if (stack.getAmount() > getCCap()) {
+            stack.setAmount(getCCap());
+        }
+
+
+        given.set(DataComponents.DAMAGE, getCCap() - stack.getAmount() == 0 ? 1 : getCCap() - stack.getAmount());
+        given.set(DataComponents.MAX_DAMAGE, getCCap());
         given.set(DataComponents.LORE, new ItemLore(List.of(Component.translatable("%s", stack.getHoverName()).withColor(0xf5e027))));
 
         if (stack.isEmpty()) {
@@ -56,7 +66,7 @@ public class FluidBarrelBlockItemWrapper implements IFluidHandlerItem {
 
     @Override
     public int getTankCapacity(int tank) {
-        return 5000;
+        return getCCap();
     }
 
     @Override
@@ -73,28 +83,28 @@ public class FluidBarrelBlockItemWrapper implements IFluidHandlerItem {
         }
         if (action.simulate()) {
             if (fluid.isEmpty()) {
-                return Math.min(5000, resource.getAmount());
+                return Math.min(getCCap(), resource.getAmount());
             }
             if (!FluidStack.isSameFluidSameComponents(fluid, resource)) {
                 return 0;
             }
-            return Math.min(5000 - fluid.getAmount(), resource.getAmount());
+            return Math.min(getCCap() - fluid.getAmount(), resource.getAmount());
         }
         if (fluid.isEmpty()) {
-            fluid = resource.copyWithAmount(Math.min(5000, resource.getAmount()));
+            fluid = resource.copyWithAmount(Math.min(getCCap(), resource.getAmount()));
             setFluid(fluid);
             return fluid.getAmount();
         }
         if (!FluidStack.isSameFluidSameComponents(fluid, resource)) {
             return 0;
         }
-        int filled = 5000 - fluid.getAmount();
+        int filled = getCCap() - fluid.getAmount();
 
         if (resource.getAmount() < filled) {
             fluid.grow(resource.getAmount());
             filled = resource.getAmount();
         } else {
-            fluid.setAmount(5000);
+            fluid.setAmount(getCCap());
         }
         setFluid(fluid);
         return filled;

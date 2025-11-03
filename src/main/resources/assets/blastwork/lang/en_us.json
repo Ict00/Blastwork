@@ -22,5 +22,9 @@
   "item.blastwork.impact_explosive_shell": "Impact Explosive Shell",
   "item.blastwork.timed_explosive_shell": "Timed Explosive Shell",
   "item.blastwork.detonator": "Detonator",
-  "creativetab.blastwork.blastwork_tab": "Blastwork"
+  "creativetab.blastwork.blastwork_tab": "Blastwork",
+  "blastwork.configuration.newExplosionDamageCalculation": "Use Blastwork's explosion damage calculation",
+  "blastwork.configuration.fluidBarrelCapacity": "Fluid barrel's capacity",
+  "blastwork.configuration.fluidBarrelFluidMovement": "Allow fluid barrels to transfer liquid down to other fluid barrel"
+
 }
