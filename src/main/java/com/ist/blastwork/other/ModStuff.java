@@ -21,6 +21,7 @@ public class ModStuff {
                     .title(Component.translatable("creativetab.blastwork.blastwork_tab"))
                     .displayItems((x, output) -> {
                         output.accept(ModBlocks.EXPLOSIVE_BARREL_ITEM);
+                        output.accept(ModBlocks.DEMOLITION_BARREL_ITEM);
                         output.accept(ModBlocks.GOLDEN_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.DIRECTED_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.INSTANT_EXPLOSIVE_BARREL_ITEM);

@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "blastwork:block/demolition_barrel",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "blastwork:block/demolition_barrel",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "blastwork:block/demolition_barrel",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "blastwork:block/demolition_barrel",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "blastwork:block/demolition_barrel"
+    },
+    "facing=west": {
+      "model": "blastwork:block/demolition_barrel",
+      "x": 90,
+      "y": 270
+    }
+  }
+}

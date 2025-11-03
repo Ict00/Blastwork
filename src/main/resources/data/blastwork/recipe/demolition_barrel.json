@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XBX",
+    "BAB",
+    "XBX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "item": "minecraft:gravel"
+    },
+    "A": {
+      "item": "blastwork:explosive_barrel"
+    }
+  },
+  "result": {
+    "id": "blastwork:demolition_barrel",
+    "count": 1
+  }
+}

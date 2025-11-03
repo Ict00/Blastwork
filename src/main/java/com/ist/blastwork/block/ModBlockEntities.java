@@ -1,6 +1,7 @@
 package com.ist.blastwork.block;
 
 import com.ist.blastwork.Blastwork;
+import com.ist.blastwork.block.custom.DemolitionBarrel.DemolitionBarrelBlockEntity;
 import com.ist.blastwork.block.custom.DirectedExplosiveBarrel.DirectedExplosiveBarrelBlock;
 import com.ist.blastwork.block.custom.DirectedExplosiveBarrel.DirectedExplosiveBarrelBlockEntity;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
@@ -20,6 +21,10 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<ExplosiveBarrelBlockEntity>> EXPLOSIVE_BARREL_BE =
             BLOCK_ENTITIES.register("explosive_barrel_be", () -> BlockEntityType.Builder.of(
                     ExplosiveBarrelBlockEntity::new, ModBlocks.EXPLOSIVE_BARREL.get(), ModBlocks.GOLDEN_EXPLOSIVE_BARREL.get()
+            ).build(null));
+    public static final Supplier<BlockEntityType<DemolitionBarrelBlockEntity>> DEMOLITION_BARREL_BE =
+            BLOCK_ENTITIES.register("demolition_barrel_be", () -> BlockEntityType.Builder.of(
+                    DemolitionBarrelBlockEntity::new, ModBlocks.DEMOLITION_BARREL.get()
             ).build(null));
 
     public static final Supplier<BlockEntityType<DirectedExplosiveBarrelBlockEntity>> DIRECTED_EXPLOSIVE_BARREL_BE =
