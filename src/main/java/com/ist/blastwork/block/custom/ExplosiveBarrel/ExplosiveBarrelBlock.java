@@ -119,6 +119,15 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                         return ItemInteractionResult.FAIL;
                     }
                 }
+                if (stack.is(Tags.Items.TOOLS_SHEAR)) {
+                    if (entity.setOn()) {
+                        if (!level.isClientSide && stack.isDamageableItem() && !player.isCreative())
+                            stack.hurtAndBreak(1, (ServerLevel) level, player, (x) -> { });
+                        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.SHEEP_SHEAR, SoundSource.BLOCKS, 1.0F, 1.3F);
+
+                        return ItemInteractionResult.SUCCESS;
+                    }
+                }
                 else if (GunpowderCharge.getCharge(stack) != 0) {
                     int insert = GunpowderCharge.getCharge(stack);
 

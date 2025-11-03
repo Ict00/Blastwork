@@ -116,10 +116,20 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         if (fuze != -1) return false;
         if (charge > 0) {
             fuze = fuzeOnSetoff+setOffValue;
+            setChanged();
             var pos = getBlockPos();
 
             if (level != null)
                 level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.TNT_PRIMED, SoundSource.BLOCKS, 1.0F, 1.0F);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean setOn() {
+        if (fuze != -1) {
+            fuze = -1;
+            setChanged();
             return true;
         }
         return false;
