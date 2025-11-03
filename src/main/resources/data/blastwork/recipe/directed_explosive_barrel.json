@@ -3,12 +3,15 @@
   "category": "redstone",
   "pattern": [
     "XXX",
-    "AAC",
+    "BAC",
     "XXX"
   ],
   "key": {
     "A": {
       "item": "blastwork:explosive_barrel"
+    },
+    "B": {
+      "tag": "minecraft:wooden_slabs"
     },
     "X": {
       "item": "minecraft:iron_ingot"
