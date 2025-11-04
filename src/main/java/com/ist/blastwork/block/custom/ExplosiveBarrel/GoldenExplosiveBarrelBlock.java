@@ -8,6 +8,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
@@ -34,24 +35,14 @@ public class GoldenExplosiveBarrelBlock extends ExplosiveBarrelBlock {
         super(properties);
     }
 
-    @Override
-    protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (stack.is(Items.CLOCK)) {
-            int change = 20;
+    public void setChange(Level level, BlockPos pos, Player player, int change) {
+        if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity) {
+            int newValue = entity.changeSetoff(change);
+            level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM, SoundSource.BLOCKS, 0.2F, 1.0F);
 
-            if (player.getOffhandItem() == stack) {
-                change *= -1;
-            }
-
-            if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity) {
-                int newValue = entity.changeSetoff(change);
-                level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM, SoundSource.BLOCKS, 0.2F, 1.0F);
+            if (player != null)
                 player.displayClientMessage(Component.translatable("blastwork.time_changed", newValue/20).withColor(0xfff714), true);
-            }
-            return ItemInteractionResult.SUCCESS;
         }
-
-        return super.useItemOn(stack, state, level, pos, player, hand, hitResult);
     }
 
     @Override

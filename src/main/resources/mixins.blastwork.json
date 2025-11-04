@@ -7,7 +7,8 @@
   "client": [],
   "server": [],
   "mixins": [
-    "ExplosionDamageCalculatorMixin"
+    "ExplosionDamageCalculatorMixin",
+    "ItemUseOnMixin"
   ],
   "injectors": {
     "defaultRequire": 1
