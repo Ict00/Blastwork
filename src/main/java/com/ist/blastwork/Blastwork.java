@@ -10,6 +10,7 @@ import com.ist.blastwork.other.ModData;
 import com.ist.blastwork.other.ModDataMaps;
 import com.ist.blastwork.other.ModSounds;
 import com.ist.blastwork.other.ModStuff;
+import com.ist.blastwork.recipe.ModRecipes;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.registries.datamaps.RegisterDataMapTypesEvent;
@@ -42,6 +43,7 @@ public class Blastwork {
         ModEntityTypes.register(modEventBus);
         ModBlockEntities.register(modEventBus);
         ModItems.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::registerCapabilityProvider);
         modEventBus.addListener(this::registerDataMapTypes);

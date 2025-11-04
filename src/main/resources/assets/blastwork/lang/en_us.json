@@ -18,6 +18,7 @@
   "blastwork.fluid_barrel.contains_other": "This barrel contains %s only",
   "item.blastwork.empty_explosive_shell": "Empty Explosive Shell",
   "item.blastwork.charged_shell": "Charged Shell",
+  "item.blastwork.smoldering_shell": "Smoldering Shell",
   "item.blastwork.creative_charged_shell": "Creative Charged Shell",
   "item.blastwork.impact_explosive_shell": "Impact Explosive Shell",
   "item.blastwork.timed_explosive_shell": "Timed Explosive Shell",

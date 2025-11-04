@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ABA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:fire_charge"
+    },
+    "B": {
+      "item": "blastwork:empty_explosive_shell"
+    }
+  },
+  "result": {
+    "id": "blastwork:smoldering_shell",
+    "count": 1
+  }
+}

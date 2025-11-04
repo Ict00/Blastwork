@@ -130,6 +130,7 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                 }
                 else if (GunpowderCharge.getCharge(stack) != 0) {
                     int insert = GunpowderCharge.getCharge(stack);
+                    var left = GunpowderCharge.getLeftItem(stack);
 
                     if (entity.reachedMaxCharge()) {
                         level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 1.0F, 1.0F);
@@ -139,8 +140,14 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
 
                     level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.6F, 1.0F);
                     entity.tryInsert(insert);
-                    if (!player.isCreative())
+
+                    if (!player.isCreative()) {
                         stack.shrink(1);
+                        if (left != ItemStack.EMPTY) {
+                            player.getInventory().add(left.copy());
+                        }
+                    }
+
                     return ItemInteractionResult.SUCCESS;
                 }
 

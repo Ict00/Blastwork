@@ -30,6 +30,7 @@ public class ModStuff {
                         output.accept(ModItems.EMPTY_EXPLOSIVE_SHELL);
                         output.accept(ModItems.IMPACT_EXPLOSIVE_SHELL);
                         output.accept(ModItems.TIMED_EXPLOSIVE_SHELL);
+                        output.accept(ModItems.SMOLDERING_SHELL);
                         output.accept(ModItems.CHARGED_SHELL);
                         output.accept(ModItems.CREATIVE_CHARGED_SHELL);
                         output.accept(Items.GUNPOWDER);

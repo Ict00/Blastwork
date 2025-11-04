@@ -18,6 +18,7 @@
   "blastwork.fluid_barrel.contains_other": "Эта бочка содержит только %s",
   "item.blastwork.empty_explosive_shell": "Пустой Взрывной Снаряд",
   "item.blastwork.charged_shell": "Пороховой Снаряд",
+  "item.blastwork.smoldering_shell": "Тлеющий Снаряд",
   "item.blastwork.creative_charged_shell": "Творческий Пороховой Снаряд",
   "item.blastwork.impact_explosive_shell": "Ударный Снаряд",
   "item.blastwork.timed_explosive_shell": "Снаряд с Таймером",

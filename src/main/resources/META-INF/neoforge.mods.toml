@@ -19,15 +19,25 @@ authors="${mod_authors}" #optional
 
 description='''${mod_description}'''
 
-[[dependencies.${mod_id}]]
 
-    modId="neoforge"
-    type="required"
-    versionRange="[${neo_version},)"
-    ordering="NONE"
-    side="BOTH"
 [[mixins]]
 config="mixins.blastwork.json"
+
+[[dependencies.${mod_id}]]
+
+modId="neoforge"
+type="required"
+versionRange="[${neo_version},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
+
+modId="jei"
+type="optional"
+versionRange="[19.25.0.325,)"
+ordering="AFTER"
+side="CLIENT"
 
 [[dependencies.${mod_id}]]
     modId="minecraft"

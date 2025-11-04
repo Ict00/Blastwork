@@ -19,6 +19,7 @@ public class ModItems {
 
     public static final DeferredItem<Item> EMPTY_EXPLOSIVE_SHELL = ITEMS.registerSimpleItem("empty_explosive_shell", new Item.Properties().stacksTo(16));
     public static final DeferredItem<Item> CHARGED_SHELL = ITEMS.register("charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> SMOLDERING_SHELL = ITEMS.register("smoldering_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> CREATIVE_CHARGED_SHELL = ITEMS.register("creative_charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> IMPACT_EXPLOSIVE_SHELL = ITEMS.register("impact_explosive_shell", () -> new ImpactExplosiveShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> TIMED_EXPLOSIVE_SHELL = ITEMS.register("timed_explosive_shell", () -> new TimedExplosiveShellItem(new Item.Properties().stacksTo(1)));

@@ -5,6 +5,8 @@ import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity
 import com.ist.blastwork.item.ModItems;
 import com.ist.blastwork.other.FluidStackComponent;
 import com.ist.blastwork.other.ModData;
+import com.ist.blastwork.recipe.FluidBarrelRecipe.FluidBarrelRecipeInput;
+import com.ist.blastwork.recipe.ModRecipes;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
@@ -115,6 +117,25 @@ public class FluidBarrelBlock extends BaseEntityBlock {
 
                         if (!player.isCreative())
                             player.setItemInHand(hand, fluidHandler.getContainer());
+
+                        return ItemInteractionResult.SUCCESS;
+                    }
+                }
+            }
+            else {
+                var input = new FluidBarrelRecipeInput(cap.getFluidInTank(0), stack);
+                var optionalRecipe = level.getRecipeManager().getRecipeFor(ModRecipes.FLUID_BARREL_RECIPE_TYPE.get(),
+                        input, level);
+
+                if (optionalRecipe.isPresent()) {
+                    var actualRecipe = optionalRecipe.get().value();
+                    FluidStack drained = cap.drain(actualRecipe.inputFluid().getAmount(), IFluidHandler.FluidAction.SIMULATE);
+
+                    if (drained.getAmount() == actualRecipe.inputFluid().getAmount()) {
+                        level.playSound(null, pos, cap.getFluidInTank(0).getFluid().getPickupSound().isPresent() ? cap.getFluidInTank(0).getFluid().getPickupSound().get() : SoundEvents.BUCKET_EMPTY, SoundSource.BLOCKS, 1, 2);
+                        cap.drain(drained.getAmount(), IFluidHandler.FluidAction.EXECUTE);
+                        stack.shrink(1);
+                        player.getInventory().add(actualRecipe.assemble(input, null));
 
                         return ItemInteractionResult.SUCCESS;
                     }

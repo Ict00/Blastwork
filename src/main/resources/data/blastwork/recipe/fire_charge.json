@@ -1,0 +1,13 @@
+{
+  "type": "blastwork:fluid_barrel_recipe",
+  "ingredientItem": {
+    "item": "minecraft:coal"
+  },
+  "fluid": {
+    "id": "minecraft:lava",
+    "amount": 250
+  },
+  "result": {
+    "id": "minecraft:fire_charge"
+  }
+}
