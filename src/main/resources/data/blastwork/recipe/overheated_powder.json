@@ -1,0 +1,13 @@
+{
+  "type": "blastwork:fluid_barrel_recipe",
+  "ingredientItem": {
+    "item": "blastwork:blaze_gunpowder"
+  },
+  "fluid": {
+    "id": "minecraft:lava",
+    "amount": 500
+  },
+  "result": {
+    "id": "blastwork:overheated_powder"
+  }
+}

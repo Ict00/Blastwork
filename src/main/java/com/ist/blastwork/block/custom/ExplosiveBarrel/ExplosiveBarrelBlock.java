@@ -3,6 +3,7 @@ package com.ist.blastwork.block.custom.ExplosiveBarrel;
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlockEntities;
 import com.ist.blastwork.block.custom.Explosive.GunpowderCharge;
+import com.ist.blastwork.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -46,7 +47,12 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
         if (!level.isClientSide)
             if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity) {
                 if (entity.getCharge() > 0) {
-                    level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.GUNPOWDER, entity.getCharge())));
+                    int normal = entity.getCharge();
+                    if (entity.getCharge() > entity.maxCharge) {
+                        normal -= entity.getSpecialCharge();
+                        level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(ModItems.OVERHEATED_POWDER.get(), entity.getSpecialCharge())));
+                    }
+                    level.addFreshEntity(new ItemEntity(level, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.GUNPOWDER, normal)));
                 }
             }
     }
@@ -132,14 +138,21 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                     int insert = GunpowderCharge.getCharge(stack);
                     var left = GunpowderCharge.getLeftItem(stack);
 
-                    if (entity.reachedMaxCharge()) {
+                    if (entity.reachedMaxCharge() && (entity.reachedMaxSpecialCharge() ||
+                    !GunpowderCharge.isSpecial(stack))) {
                         level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 1.0F, 1.0F);
-                        player.displayClientMessage(Component.translatable("blastwork.reached_max_charge", entity.maxCharge).withColor(0xFF0000), true);
+                        player.displayClientMessage(Component.translatable("blastwork.reached_max_charge", entity.maxCharge, Component.empty().append(String.format("+%d", entity.getSpecialCharge())).withColor(0xd442f5)).withColor(0xFF0000), true);
                         return ItemInteractionResult.FAIL;
+                    }
+                    else if (!entity.reachedMaxSpecialCharge() && entity.reachedMaxCharge() &&
+                    GunpowderCharge.isSpecial(stack)) {
+                        entity.tryInsertSpecial(insert);
+                    }
+                    else {
+                        entity.tryInsert(insert);
                     }
 
                     level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.6F, 1.0F);
-                    entity.tryInsert(insert);
 
                     if (!player.isCreative()) {
                         stack.shrink(1);

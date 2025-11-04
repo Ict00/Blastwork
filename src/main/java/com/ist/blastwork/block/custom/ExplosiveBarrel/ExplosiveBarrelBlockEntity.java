@@ -41,21 +41,33 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
     public int getCharge() {
         return charge;
     }
+    public int getSpecialCharge() {
+        if (!reachedMaxSpecialCharge()) return 0;
+        return charge - maxCharge;
+    }
 
     public final boolean reachedMaxCharge() {
         return charge >= maxCharge;
     }
+    public final boolean reachedMaxSpecialCharge() {
+        return charge >= maxCharge + maxCharge/2;
+    }
 
-    public final int tryInsert(int x) {
-        if (reachedMaxCharge()) return 0;
+
+    public final void tryInsertSpecial(int x) {
+        if (reachedMaxSpecialCharge()) return;
+        charge += x;
+
+        if (charge > maxCharge + maxCharge/2) {
+            charge = maxCharge + maxCharge/2;
+        }
+    }
+
+    public final void tryInsert(int x) {
+        if (reachedMaxCharge()) return;
         charge += x;
         if (charge > maxCharge) {
-            int ret = x - (charge - maxCharge);
             charge = maxCharge;
-            return ret;
-        }
-        else {
-            return x;
         }
     }
 

@@ -16,9 +16,11 @@ import static com.ist.blastwork.block.ModBlocks.FLUID_BARREL;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Blastwork.MODID);
-
+    public static final DeferredItem<Item> BLAZE_GUNPOWDER = ITEMS.registerSimpleItem("blaze_gunpowder", new Item.Properties().stacksTo(64));
+    public static final DeferredItem<Item> OVERHEATED_POWDER = ITEMS.registerSimpleItem("overheated_powder", new Item.Properties().stacksTo(64));
     public static final DeferredItem<Item> EMPTY_EXPLOSIVE_SHELL = ITEMS.registerSimpleItem("empty_explosive_shell", new Item.Properties().stacksTo(16));
     public static final DeferredItem<Item> CHARGED_SHELL = ITEMS.register("charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> OVERHEATED_SHELL = ITEMS.register("overheated_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> SMOLDERING_SHELL = ITEMS.register("smoldering_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> CREATIVE_CHARGED_SHELL = ITEMS.register("creative_charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> IMPACT_EXPLOSIVE_SHELL = ITEMS.register("impact_explosive_shell", () -> new ImpactExplosiveShellItem(new Item.Properties().stacksTo(16)));

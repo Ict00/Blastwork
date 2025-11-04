@@ -3,6 +3,12 @@
     "minecraft:gunpowder": {
       "charge": 1
     },
+    "blastwork:blaze_gunpowder": {
+      "charge": 2
+    },
+    "blastwork:overheated_powder": {
+      "charge": 4
+    },
     "minecraft:fire_charge": {
       "charge": 1
     },
@@ -17,6 +23,13 @@
       "leaveAfterUse": {
         "id": "blastwork:empty_explosive_shell"
       }
+    },
+    "blastwork:overheated_shell": {
+      "charge": 4,
+      "leaveAfterUse": {
+        "id": "blastwork:empty_explosive_shell"
+      },
+      "special": true
     },
     "blastwork:creative_charged_shell": {
       "charge": 256

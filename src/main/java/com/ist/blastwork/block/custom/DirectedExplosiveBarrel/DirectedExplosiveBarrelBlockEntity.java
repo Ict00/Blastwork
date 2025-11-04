@@ -106,7 +106,7 @@ public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEnti
                         pos.getX() + x,
                         pos.getY() + y,
                         pos.getZ() + z,
-                        Math.max(2.5f, (i/3f)),
+                        Math.max(add * 2.5f, (i/3f)),
                         false,
                         Level.ExplosionInteraction.TNT,
                         ParticleTypes.EXPLOSION,
