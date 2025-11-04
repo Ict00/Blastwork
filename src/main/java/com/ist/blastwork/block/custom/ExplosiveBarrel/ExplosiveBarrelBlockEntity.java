@@ -42,8 +42,12 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         return charge;
     }
     public int getSpecialCharge() {
-        if (!reachedMaxSpecialCharge()) return 0;
+        if (!reachedMaxCharge()) return 0;
         return charge - maxCharge;
+    }
+    public int getNormalCharge() {
+        if (!reachedMaxCharge()) return getCharge();
+        return maxCharge;
     }
 
     public final boolean reachedMaxCharge() {

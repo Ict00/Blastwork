@@ -1,4 +1,10 @@
 {
+  "config.jade.plugin_blastwork.jade_plugin": "Enabled",
+  "tooltip.blastwork.charge_amount": "Gunpowder charge: %d",
+  "tooltip.blastwork.extra_charge_amount": "Gunpowder charge: %d+",
+  "jade.blastwork.time": "Explodes in %ds",
+  "jade.blastwork.charge": "Charge: %d%s",
+  "jade.blastwork.extra_charge": "+[%d]",
   "block.blastwork.explosive_barrel": "Explosive Barrel",
   "block.blastwork.demolition_barrel": "Demolition Barrel",
   "block.blastwork.fire_explosive_barrel": "Fire Explosive Barrel",

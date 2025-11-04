@@ -1,4 +1,10 @@
 {
+  "config.jade.plugin_blastwork.jade_plugin": "Включено",
+  "tooltip.blastwork.charge_amount": "Пороховой заряд: %d",
+  "tooltip.blastwork.extra_charge_amount": "Пороховой заряд: %d+",
+  "jade.blastwork.time": "%dс перед взрывом",
+  "jade.blastwork.charge": "Заряд: %d%s",
+  "jade.blastwork.extra_charge": "+[%d]",
   "block.blastwork.explosive_barrel": "Взрывная Бочка",
   "block.blastwork.demolition_barrel": "Сносная Бочка",
   "block.blastwork.fire_explosive_barrel": "Огненная Бочка",
@@ -30,5 +36,4 @@
   "blastwork.configuration.newExplosionDamageCalculation": "Использовать метод мода для расчёта урона взрывом",
   "blastwork.configuration.fluidBarrelCapacity": "Вместимость Жидкостной Бочки",
   "blastwork.configuration.fluidBarrelFluidMovement": "Разрешить жидкостям переливаться вниз по Жидкостным Бочкам"
-
 }

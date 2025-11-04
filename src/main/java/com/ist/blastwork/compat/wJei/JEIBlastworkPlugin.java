@@ -1,4 +1,4 @@
-package com.ist.blastwork.compat;
+package com.ist.blastwork.compat.wJei;
 
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlocks;
@@ -6,7 +6,6 @@ import com.ist.blastwork.recipe.FluidBarrelRecipe.FluidBarrelRecipe;
 import com.ist.blastwork.recipe.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
