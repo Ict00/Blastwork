@@ -9,9 +9,6 @@
     "blastwork:overheated_powder": {
       "charge": 4
     },
-    "minecraft:fire_charge": {
-      "charge": 1
-    },
     "blastwork:charged_shell": {
       "charge": 4,
       "leaveAfterUse": {
