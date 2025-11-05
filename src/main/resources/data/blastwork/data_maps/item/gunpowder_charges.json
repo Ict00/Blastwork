@@ -32,7 +32,8 @@
       "special": true
     },
     "blastwork:creative_charged_shell": {
-      "charge": 256
+      "charge": 256,
+      "special": true
     }
   }
 }

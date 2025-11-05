@@ -2,6 +2,7 @@ package com.ist.blastwork.entity;
 
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.item.ImpactExplosiveShell.ImpactExplosiveShellThrown;
+import com.ist.blastwork.item.OverheatedExplosiveShell.OverheatedExplosiveShellThrown;
 import com.ist.blastwork.item.TimedExplosiveShell.TimedExplosiveShellThrown;
 import net.minecraft.client.particle.BreakingItemParticle;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -18,6 +19,10 @@ public class ModEntityTypes {
     public static final Supplier<EntityType<ImpactExplosiveShellThrown>> IMPACT_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
             "impact_explosive_shell", () -> EntityType.Builder.<ImpactExplosiveShellThrown>of(ImpactExplosiveShellThrown::new, MobCategory.MISC)
                     .sized(0.2f, 0.2f).build("impact_explosive_shell"));
+
+    public static final Supplier<EntityType<OverheatedExplosiveShellThrown>> OVERHEATED_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
+                "overheated_explosive_shell", () -> EntityType.Builder.<OverheatedExplosiveShellThrown>of(OverheatedExplosiveShellThrown::new, MobCategory.MISC)
+                    .sized(0.2f, 0.2f).build("overheated_explosive_shell"));
 
     public static final Supplier<EntityType<TimedExplosiveShellThrown>> TIMED_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
             "timed_explosive_shell", () -> EntityType.Builder.<TimedExplosiveShellThrown>of(TimedExplosiveShellThrown::new, MobCategory.MISC)

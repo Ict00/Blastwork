@@ -34,6 +34,11 @@ public class BlastworkClient {
         );
 
         event.registerEntityRenderer(
+                ModEntityTypes.OVERHEATED_EXPLOSIVE_SHELL_ET.get(),
+                ThrownItemRenderer::new
+        );
+
+        event.registerEntityRenderer(
                 ModEntityTypes.TIMED_EXPLOSIVE_SHELL_ET.get(),
                 ThrownItemRenderer::new
         );

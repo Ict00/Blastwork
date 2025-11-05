@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "blastwork:item/overheated_explosive_shell"
+  }
+}

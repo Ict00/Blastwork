@@ -68,7 +68,7 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
 
     @Override
     public boolean onDestroyedByPlayer(BlockState state, Level level, BlockPos pos, Player player, boolean willHarvest, FluidState fluid) {
-        if (dropGunpowderOnBroken)
+        if (dropGunpowderOnBroken && !player.isCreative())
             dropContents(level, pos);
 
         return super.onDestroyedByPlayer(state, level, pos, player, willHarvest, fluid);

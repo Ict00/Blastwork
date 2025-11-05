@@ -29,6 +29,7 @@ public class ModStuff {
                         output.accept(ModItems.DETONATOR);
                         output.accept(ModItems.EMPTY_EXPLOSIVE_SHELL);
                         output.accept(ModItems.IMPACT_EXPLOSIVE_SHELL);
+                        output.accept(ModItems.OVERHEATED_EXPLOSIVE_SHELL);
                         output.accept(ModItems.TIMED_EXPLOSIVE_SHELL);
                         output.accept(ModItems.SMOLDERING_SHELL);
                         output.accept(ModItems.OVERHEATED_SHELL);

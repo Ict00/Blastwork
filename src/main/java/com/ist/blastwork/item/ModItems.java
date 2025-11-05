@@ -5,6 +5,7 @@ import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItem;
 import com.ist.blastwork.item.Detonator.DetonatorItem;
 import com.ist.blastwork.item.FilledShell.FilledShellItem;
 import com.ist.blastwork.item.ImpactExplosiveShell.ImpactExplosiveShellItem;
+import com.ist.blastwork.item.OverheatedExplosiveShell.OverheatedExplosiveShellItem;
 import com.ist.blastwork.item.TimedExplosiveShell.TimedExplosiveShellItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -24,6 +25,7 @@ public class ModItems {
     public static final DeferredItem<Item> SMOLDERING_SHELL = ITEMS.register("smoldering_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> CREATIVE_CHARGED_SHELL = ITEMS.register("creative_charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> IMPACT_EXPLOSIVE_SHELL = ITEMS.register("impact_explosive_shell", () -> new ImpactExplosiveShellItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> OVERHEATED_EXPLOSIVE_SHELL = ITEMS.register("overheated_explosive_shell", () -> new OverheatedExplosiveShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> TIMED_EXPLOSIVE_SHELL = ITEMS.register("timed_explosive_shell", () -> new TimedExplosiveShellItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> DETONATOR = ITEMS.register("detonator", () -> new DetonatorItem(new Item.Properties().stacksTo(1).durability(32)));
     public static final DeferredItem<BlockItem> FLUID_BARREL_ITEM = ModItems.ITEMS.register("fluid_barrel", () -> new FluidBarrelBlockItem(FLUID_BARREL.get(), new Item.Properties()));
