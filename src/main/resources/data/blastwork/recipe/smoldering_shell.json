@@ -2,9 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    " A ",
-    "ABA",
-    " A "
+    "A",
+    "B",
+    "A"
   ],
   "key": {
     "A": {

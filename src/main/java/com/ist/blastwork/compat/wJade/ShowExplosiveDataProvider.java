@@ -17,10 +17,11 @@ public enum ShowExplosiveDataProvider implements IBlockComponentProvider, IServe
     @Override
     public void appendTooltip(ITooltip iTooltip, BlockAccessor blockAccessor, IPluginConfig iPluginConfig) {
         if (blockAccessor.getServerData().contains("Charge") && blockAccessor.getServerData().contains("Special") &&
-        blockAccessor.getServerData().contains("Time")) {
+        blockAccessor.getServerData().contains("Time") && blockAccessor.getServerData().contains("Sealed")) {
             int charge = blockAccessor.getServerData().getInt("Charge");
             int special = blockAccessor.getServerData().getInt("Special");
             int time = blockAccessor.getServerData().getInt("Time");
+            boolean isSealed = blockAccessor.getServerData().getBoolean("Sealed");
 
             iTooltip.add(
                     Component.translatable("jade.blastwork.charge",
@@ -32,6 +33,10 @@ public enum ShowExplosiveDataProvider implements IBlockComponentProvider, IServe
             iTooltip.add(
                     Component.translatable("jade.blastwork.time", time/20)
             );
+
+            if (isSealed) {
+                iTooltip.add(Component.translatable("blastwork.barrel_sealed"));
+            }
         }
     }
 
@@ -46,5 +51,6 @@ public enum ShowExplosiveDataProvider implements IBlockComponentProvider, IServe
         compoundTag.putInt("Charge", entity.getNormalCharge());
         compoundTag.putInt("Special", entity.getSpecialCharge());
         compoundTag.putInt("Time", entity.changeSetoff(0));
+        compoundTag.putBoolean("Sealed", entity.isSealed());
     }
 }

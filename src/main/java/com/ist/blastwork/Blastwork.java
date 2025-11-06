@@ -66,9 +66,16 @@ public class Blastwork {
         int charge = GunpowderCharge.getCharge(event.getStack());
 
         if (charge != 0) {
-            Component component = GunpowderCharge.isSpecial(event.getStack()) ?
-                    Component.translatable("tooltip.blastwork.extra_charge_amount", charge).withColor(0xd442f5) :
-                    Component.translatable("tooltip.blastwork.charge_amount", charge).withColor(0xa6a6a6);
+            Component component;
+
+            if (charge < 0) {
+                component = Component.translatable("tooltip.blastwork.uncharged_amount", charge*-1).withColor(0xf29b18);
+            }
+            else {
+                component = GunpowderCharge.isSpecial(event.getStack()) ?
+                        Component.translatable("tooltip.blastwork.extra_charge_amount", charge).withColor(0xd442f5) :
+                        Component.translatable("tooltip.blastwork.charge_amount", charge).withColor(0xa6a6a6);
+            }
             event.addTooltipLines(component);
         }
     }

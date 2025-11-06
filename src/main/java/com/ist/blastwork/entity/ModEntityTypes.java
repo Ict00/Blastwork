@@ -1,6 +1,7 @@
 package com.ist.blastwork.entity;
 
 import com.ist.blastwork.Blastwork;
+import com.ist.blastwork.item.FireShell.FireShellItemThrown;
 import com.ist.blastwork.item.ImpactExplosiveShell.ImpactExplosiveShellThrown;
 import com.ist.blastwork.item.OverheatedExplosiveShell.OverheatedExplosiveShellThrown;
 import com.ist.blastwork.item.TimedExplosiveShell.TimedExplosiveShellThrown;
@@ -19,6 +20,10 @@ public class ModEntityTypes {
     public static final Supplier<EntityType<ImpactExplosiveShellThrown>> IMPACT_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
             "impact_explosive_shell", () -> EntityType.Builder.<ImpactExplosiveShellThrown>of(ImpactExplosiveShellThrown::new, MobCategory.MISC)
                     .sized(0.2f, 0.2f).build("impact_explosive_shell"));
+
+    public static final Supplier<EntityType<FireShellItemThrown>> FIRE_SHELL_ET = ENTITY_TYPES.register(
+            "fire_shell", () -> EntityType.Builder.<FireShellItemThrown>of(FireShellItemThrown::new, MobCategory.MISC)
+                    .sized(0.2f, 0.2f).build("fire_shell"));
 
     public static final Supplier<EntityType<OverheatedExplosiveShellThrown>> OVERHEATED_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
                 "overheated_explosive_shell", () -> EntityType.Builder.<OverheatedExplosiveShellThrown>of(OverheatedExplosiveShellThrown::new, MobCategory.MISC)

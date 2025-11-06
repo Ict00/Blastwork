@@ -9,6 +9,12 @@
     "blastwork:overheated_powder": {
       "charge": 4
     },
+    "blastwork:inactive_shell": {
+      "charge": -2,
+      "leaveAfterUse": {
+        "id": "blastwork:empty_copper_shell"
+      }
+    },
     "blastwork:charged_shell": {
       "charge": 4,
       "leaveAfterUse": {

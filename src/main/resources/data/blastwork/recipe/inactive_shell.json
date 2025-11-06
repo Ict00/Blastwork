@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "A",
+    "C",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:honeycomb"
+    },
+    "C": {
+      "tag": "minecraft:coals"
+    },
+    "B": {
+      "item": "blastwork:empty_copper_shell"
+    }
+  },
+  "result": {
+    "id": "blastwork:inactive_shell",
+    "count": 1
+  }
+}

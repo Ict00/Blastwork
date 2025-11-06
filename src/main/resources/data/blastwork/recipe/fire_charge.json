@@ -1,7 +1,7 @@
 {
   "type": "blastwork:fluid_barrel_recipe",
   "ingredientItem": {
-    "item": "minecraft:coal"
+    "tag": "minecraft:coals"
   },
   "fluid": {
     "id": "minecraft:lava",

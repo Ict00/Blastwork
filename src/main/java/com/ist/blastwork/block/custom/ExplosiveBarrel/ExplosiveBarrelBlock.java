@@ -6,6 +6,7 @@ import com.ist.blastwork.block.custom.Explosive.GunpowderCharge;
 import com.ist.blastwork.item.ModItems;
 import com.mojang.serialization.MapCodec;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -14,6 +15,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -134,7 +136,41 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                         return ItemInteractionResult.SUCCESS;
                     }
                 }
-                else if (GunpowderCharge.getCharge(stack) != 0) {
+                if (stack.getItem() instanceof AxeItem) {
+                    if (entity.isSealed()) {
+                        if (!level.isClientSide && stack.isDamageableItem() && !player.isCreative())
+                            stack.hurtAndBreak(1, (ServerLevel) level, player, (x) -> { });
+                        if (!level.isClientSide) {
+                            ((ServerLevel)level).sendParticles(ParticleTypes.WAX_OFF, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 10, 0.5, 0.5, 0.5, 0);
+                        }
+                        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.AXE_WAX_OFF, SoundSource.BLOCKS, 1.0F, 1.0F);
+
+                        entity.setSealed(false);
+                        return ItemInteractionResult.SUCCESS;
+                    }
+                }
+                if (stack.is(Items.HONEYCOMB)) {
+                    if (!entity.isSealed()) {
+                        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.HONEYCOMB_WAX_ON, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        if (!level.isClientSide) {
+                            ((ServerLevel)level).sendParticles(ParticleTypes.WAX_ON, pos.getX()+0.5, pos.getY()+0.5, pos.getZ()+0.5, 10, 0.5, 0.5, 0.5, 0);
+                        }
+                        if (!level.isClientSide && !player.isCreative()) {
+                            stack.shrink(1);
+                        }
+                        entity.setSealed(true);
+                        return ItemInteractionResult.SUCCESS;
+                    }
+                }
+                if (GunpowderCharge.getCharge(stack) != 0) {
+                    if (entity.isSealed()) {
+                        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        player.displayClientMessage(Component.translatable("blastwork.barrel_sealed").withColor(0xf29b18), true);
+
+                        return ItemInteractionResult.FAIL;
+                    }
+
+
                     int insert = GunpowderCharge.getCharge(stack);
                     var left = GunpowderCharge.getLeftItem(stack);
 
@@ -149,7 +185,14 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                         entity.tryInsertSpecial(insert);
                     }
                     else {
-                        entity.tryInsert(insert);
+                        if ((insert < 0 && !entity.isEmpty()) || insert > 0) {
+                            entity.tryInsert(insert);
+                        }
+                        else {
+                            level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.VAULT_INSERT_ITEM_FAIL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                            player.displayClientMessage(Component.translatable("blastwork.reached_zero").withColor(0xf29b18), true);
+                            return ItemInteractionResult.FAIL;
+                        }
                     }
 
                     level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 0.6F, 1.0F);

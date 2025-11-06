@@ -4,6 +4,7 @@ import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItem;
 import com.ist.blastwork.item.Detonator.DetonatorItem;
 import com.ist.blastwork.item.FilledShell.FilledShellItem;
+import com.ist.blastwork.item.FireShell.FireShellItem;
 import com.ist.blastwork.item.ImpactExplosiveShell.ImpactExplosiveShellItem;
 import com.ist.blastwork.item.OverheatedExplosiveShell.OverheatedExplosiveShellItem;
 import com.ist.blastwork.item.TimedExplosiveShell.TimedExplosiveShellItem;
@@ -19,6 +20,9 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Blastwork.MODID);
     public static final DeferredItem<Item> BLAZE_GUNPOWDER = ITEMS.registerSimpleItem("blaze_gunpowder", new Item.Properties().stacksTo(64));
     public static final DeferredItem<Item> OVERHEATED_POWDER = ITEMS.registerSimpleItem("overheated_powder", new Item.Properties().stacksTo(64));
+    public static final DeferredItem<Item> EMPTY_COPPER_SHELL = ITEMS.registerSimpleItem("empty_copper_shell", new Item.Properties().stacksTo(16));
+    public static final DeferredItem<Item> INACTIVE_SHELL = ITEMS.register("inactive_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> FIRE_SHELL = ITEMS.register("fire_shell", () -> new FireShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> EMPTY_EXPLOSIVE_SHELL = ITEMS.registerSimpleItem("empty_explosive_shell", new Item.Properties().stacksTo(16));
     public static final DeferredItem<Item> CHARGED_SHELL = ITEMS.register("charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> OVERHEATED_SHELL = ITEMS.register("overheated_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));

@@ -27,6 +27,9 @@ public class ModStuff {
                         output.accept(ModBlocks.INSTANT_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModItems.FLUID_BARREL_ITEM);
                         output.accept(ModItems.DETONATOR);
+                        output.accept(ModItems.EMPTY_COPPER_SHELL);
+                        output.accept(ModItems.INACTIVE_SHELL);
+                        output.accept(ModItems.FIRE_SHELL);
                         output.accept(ModItems.EMPTY_EXPLOSIVE_SHELL);
                         output.accept(ModItems.IMPACT_EXPLOSIVE_SHELL);
                         output.accept(ModItems.OVERHEATED_EXPLOSIVE_SHELL);
