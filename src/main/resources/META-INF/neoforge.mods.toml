@@ -40,6 +40,14 @@ ordering="AFTER"
 side="CLIENT"
 
 [[dependencies.${mod_id}]]
+
+modId="jade"
+type="optional"
+versionRange="[15.10.3+neoforge,)"
+ordering="AFTER"
+side="BOTH"
+
+[[dependencies.${mod_id}]]
     modId="minecraft"
     type="required"
     versionRange="${minecraft_version_range}"
