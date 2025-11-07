@@ -8,7 +8,11 @@
   "jade.blastwork.charge": "Charge: %d%s",
   "jade.blastwork.extra_charge": "+[%d]",
   "block.blastwork.explosive_barrel": "Explosive Barrel",
+  "block.blastwork.potion_barrel": "Potion Barrel",
+  "block.blastwork.creative_explosive_barrel": "Creative Explosive Barrel",
   "block.blastwork.demolition_barrel": "Demolition Barrel",
+  "block.blastwork.blackpowder_barrel": "Black-Powder Barrel",
+  "block.blastwork.tunnel_explosive_barrel": "Tunnel Explosive Barrel",
   "block.blastwork.fire_explosive_barrel": "Fire Explosive Barrel",
   "block.blastwork.fluid_barrel": "Fluid Barrel",
   "block.blastwork.instant_explosive_barrel": "Instant Explosive Barrel",
@@ -26,7 +30,10 @@
   "blastwork.fluid_barrel.full": "Barrel is full",
   "blastwork.fluid_barrel.contains": "Fluid: %s",
   "blastwork.fluid_barrel.contains_other": "This barrel contains %s only",
-  "item.blastwork.empty_explosive_shell": "Empty Explosive Shell",
+  "item.blastwork.fuse": "Fuse",
+  "item.blastwork.empty_blaze_tag": "Empty Blaze Tag",
+  "item.blastwork.blaze_tag": "Blaze Tag",
+  "item.blastwork.empty_explosive_shell": "Empty Shell",
   "item.blastwork.inactive_shell": "Inactive Shell",
   "item.blastwork.fire_shell": "Fire Shell",
   "item.blastwork.empty_copper_shell": "Empty Copper Shell",
@@ -43,6 +50,7 @@
   "creativetab.blastwork.blastwork_tab": "Blastwork",
   "blastwork.configuration.newExplosionDamageCalculation": "Use Blastwork's explosion damage calculation",
   "blastwork.configuration.fluidBarrelCapacity": "Fluid barrel's capacity",
+  "blastwork.configuration.blackpowderBarrelParticleCount": "Black-Powder Barrel's particle count",
   "blastwork.configuration.fluidBarrelFluidMovement": "Allow fluid barrels to transfer liquid down to other fluid barrel"
 
 }

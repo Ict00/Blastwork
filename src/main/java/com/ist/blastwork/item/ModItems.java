@@ -2,6 +2,7 @@ package com.ist.blastwork.item;
 
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItem;
+import com.ist.blastwork.item.BlazeTag.BlazeTagItem;
 import com.ist.blastwork.item.Detonator.DetonatorItem;
 import com.ist.blastwork.item.FilledShell.FilledShellItem;
 import com.ist.blastwork.item.FireShell.FireShellItem;
@@ -18,6 +19,10 @@ import static com.ist.blastwork.block.ModBlocks.FLUID_BARREL;
 
 public class ModItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Blastwork.MODID);
+    public static final DeferredItem<Item> FUSE_ITEM = ITEMS.registerSimpleItem("fuse", new Item.Properties().stacksTo(16));
+
+    public static final DeferredItem<Item> EMPTY_BLAZE_TAG = ITEMS.registerSimpleItem("empty_blaze_tag", new Item.Properties().stacksTo(1));
+    public static final DeferredItem<Item> BLAZE_TAG = ITEMS.register("blaze_tag", () -> new BlazeTagItem(new Item.Properties().stacksTo(1).durability(5)));
     public static final DeferredItem<Item> BLAZE_GUNPOWDER = ITEMS.registerSimpleItem("blaze_gunpowder", new Item.Properties().stacksTo(64));
     public static final DeferredItem<Item> OVERHEATED_POWDER = ITEMS.registerSimpleItem("overheated_powder", new Item.Properties().stacksTo(64));
     public static final DeferredItem<Item> EMPTY_COPPER_SHELL = ITEMS.registerSimpleItem("empty_copper_shell", new Item.Properties().stacksTo(16));

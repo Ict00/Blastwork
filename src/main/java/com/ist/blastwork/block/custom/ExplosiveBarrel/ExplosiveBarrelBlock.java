@@ -115,7 +115,7 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
 
     @Override
     protected @NotNull ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity) {
+        if (level.getBlockEntity(pos) instanceof ExplosiveBarrelBlockEntity entity && !level.isClientSide) {
             if (!stack.isEmpty()) {
                 if (stack.is(Tags.Items.TOOLS_IGNITER)) {
                     if(entity.setOff()) {
@@ -125,6 +125,14 @@ public class ExplosiveBarrelBlock extends BaseEntityBlock {
                     }
                     else {
                         return ItemInteractionResult.FAIL;
+                    }
+                }
+                if (stack.is(ModItems.FUSE_ITEM)) {
+                    if (entity.addFuses()) {
+                        if (!player.isCreative())
+                            stack.shrink(1);
+                        level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0F, 1.0F);
+                        return ItemInteractionResult.SUCCESS;
                     }
                 }
                 if (stack.is(Tags.Items.TOOLS_SHEAR)) {

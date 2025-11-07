@@ -6,6 +6,9 @@
     "blastwork:fluid_barrel",
     "blastwork:instant_explosive_barrel",
     "blastwork:directed_explosive_barrel",
+    "blastwork:tunnel_explosive_barrel",
+    "blastwork:blackpowder_barrel",
+    "blastwork:potion_barrel",
     "blastwork:golden_explosive_barrel"
   ]
 }

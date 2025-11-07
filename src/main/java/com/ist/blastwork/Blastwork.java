@@ -13,6 +13,7 @@ import com.ist.blastwork.other.ModSounds;
 import com.ist.blastwork.other.ModStuff;
 import com.ist.blastwork.recipe.ModRecipes;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.client.event.AddAttributeTooltipsEvent;

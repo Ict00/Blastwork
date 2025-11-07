@@ -22,5 +22,8 @@ public class Config {
     public static final ModConfigSpec.IntValue FLUID_BARREL_CAPACITY = BUILDER
             .defineInRange("fluidBarrelCapacity", 5000, 5000, Integer.MAX_VALUE);
 
+    public static final ModConfigSpec.IntValue BLACKPOWDER_BARREL_PARTICLE_COUNT = BUILDER
+            .defineInRange("blackpowderBarrelParticleCount", 900, 100, Integer.MAX_VALUE);
+
     static final ModConfigSpec SPEC = BUILDER.build();
 }

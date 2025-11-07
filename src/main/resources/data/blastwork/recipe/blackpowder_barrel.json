@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XBX",
+    "BAB",
+    "XBX"
+  ],
+  "key": {
+    "X": {
+      "item": "minecraft:iron_nugget"
+    },
+    "B": {
+      "tag": "minecraft:coals"
+    },
+    "A": {
+      "item": "blastwork:explosive_barrel"
+    }
+  },
+  "result": {
+    "id": "blastwork:blackpowder_barrel",
+    "count": 1
+  }
+}

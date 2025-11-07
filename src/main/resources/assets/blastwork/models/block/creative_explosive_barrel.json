@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blastwork:block/creative_explosive_barrel_bottom",
+    "side": "blastwork:block/creative_explosive_barrel_side",
+    "top": "blastwork:block/creative_explosive_barrel_top"
+  }
+}

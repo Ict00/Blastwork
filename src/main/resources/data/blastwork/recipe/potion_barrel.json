@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "XXX",
+    "XBX",
+    "XAX"
+  ],
+  "key": {
+    "A": {
+      "item": "blastwork:explosive_barrel"
+    },
+    "X": {
+      "item": "minecraft:copper_ingot"
+    },
+    "B": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "id": "blastwork:potion_barrel",
+    "count": 1
+  }
+}

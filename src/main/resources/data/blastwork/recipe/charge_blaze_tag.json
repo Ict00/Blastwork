@@ -1,0 +1,13 @@
+{
+  "type": "blastwork:fluid_barrel_recipe",
+  "ingredientItem": {
+    "item": "blastwork:empty_blaze_tag"
+  },
+  "fluid": {
+    "id": "minecraft:lava",
+    "amount": 5000
+  },
+  "result": {
+    "id": "blastwork:blaze_tag"
+  }
+}

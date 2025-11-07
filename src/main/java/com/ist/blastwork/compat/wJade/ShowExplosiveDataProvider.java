@@ -2,6 +2,7 @@ package com.ist.blastwork.compat.wJade;
 
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
+import com.ist.blastwork.block.custom.PotionBarrel.PotionBarrelBlockEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -37,6 +38,17 @@ public enum ShowExplosiveDataProvider implements IBlockComponentProvider, IServe
             if (isSealed) {
                 iTooltip.add(Component.translatable("blastwork.barrel_sealed"));
             }
+
+            if (blockAccessor.getServerData().contains("Effects")) {
+                var effects = PotionBarrelBlockEntity.getEffectsFromTag(blockAccessor.getServerData().get("Effects"));
+                if (!effects.isEmpty()) {
+                    iTooltip.add(Component.empty());
+
+                    for (var i : effects) {
+                        iTooltip.add(Component.translatable("%s", i.value().getDisplayName()).withColor(i.value().getColor()));
+                    }
+                }
+            }
         }
     }
 
@@ -52,5 +64,9 @@ public enum ShowExplosiveDataProvider implements IBlockComponentProvider, IServe
         compoundTag.putInt("Special", entity.getSpecialCharge());
         compoundTag.putInt("Time", entity.changeSetoff(0));
         compoundTag.putBoolean("Sealed", entity.isSealed());
+
+        if (entity instanceof PotionBarrelBlockEntity potionEntity) {
+            compoundTag.put("Effects", potionEntity.getEffectsTag());
+        }
     }
 }

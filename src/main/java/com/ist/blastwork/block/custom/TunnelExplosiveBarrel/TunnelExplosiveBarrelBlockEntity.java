@@ -1,43 +1,38 @@
-package com.ist.blastwork.block.custom.DirectedExplosiveBarrel;
+package com.ist.blastwork.block.custom.TunnelExplosiveBarrel;
 
-import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlockEntities;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
 import com.ist.blastwork.other.ModSounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 
 
-public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
+public class TunnelExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
 
-    public DirectedExplosiveBarrelBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.DIRECTED_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
+    public TunnelExplosiveBarrelBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.TUNNEL_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
     }
 
-    public DirectedExplosiveBarrelBlockEntity(BlockPos pos, BlockState blockState) {
-        super(ModBlockEntities.DIRECTED_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
+    public TunnelExplosiveBarrelBlockEntity(BlockPos pos, BlockState blockState) {
+        super(ModBlockEntities.TUNNEL_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
     }
 
 
-    public DirectedExplosiveBarrelBlockEntity(BlockPos pos, BlockState blockState, int overrideMaxCharge, int overrideFuseOnSetoff) {
-        super(ModBlockEntities.DIRECTED_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
+    public TunnelExplosiveBarrelBlockEntity(BlockPos pos, BlockState blockState, int overrideMaxCharge, int overrideFuseOnSetoff) {
+        super(ModBlockEntities.TUNNEL_EXPLOSIVE_BARREL_BE.get(), pos, blockState);
         fuzeOnSetoff = overrideFuseOnSetoff;
         maxCharge = overrideMaxCharge;
     }
 
-    public static void staticTick(Level level, BlockPos pos, BlockState state, DirectedExplosiveBarrelBlockEntity blockEntity) {
+    public static void staticTick(Level level, BlockPos pos, BlockState state, TunnelExplosiveBarrelBlockEntity blockEntity) {
         blockEntity.tick(level, pos, state);
     }
 
@@ -91,7 +86,7 @@ public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEnti
 
             float x = pos.getX(), y = pos.getY(), z = pos.getZ();
 
-            for (int i = 1; i <= temp/1.5f; i += add) {
+            for (int i = 1; i <= temp*1.5f; i += add) {
                 x = i * changeX;
                 y = i * changeY;
                 z = i * changeZ;
@@ -103,7 +98,7 @@ public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEnti
                         pos.getX() + x,
                         pos.getY() + y,
                         pos.getZ() + z,
-                        Math.max(2.5f, (float)Math.pow(i, 0.5f)),
+                        2.3f,
                         false,
                         Level.ExplosionInteraction.TNT,
                         ParticleTypes.EXPLOSION,

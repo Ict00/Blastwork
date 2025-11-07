@@ -21,11 +21,21 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
     protected int fuzeOnSetoff = 100;
     protected int maxCharge = 16;
     protected int charge;
+    protected int fusesUsed = 0; // max is 8
     protected boolean sealed = false;
 
     public void setSealed(boolean sealed) {
         this.sealed = sealed;
         setChanged();
+    }
+
+    public boolean addFuses() {
+        if (fusesUsed >= 8) return false;
+
+        fusesUsed++;
+        fuzeOnSetoff += 20;
+
+        return true;
     }
 
     public boolean isSealed() {
@@ -113,7 +123,9 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         tag.putInt("charge", charge);
         tag.putBoolean("sealed", sealed);
         tag.putInt("fuze", fuze);
+        tag.putInt("fusesUsed", fuze);
         tag.putInt("fuzeOnSetoff", fuzeOnSetoff);
+        tag.putInt("maxCharge", maxCharge);
     }
 
     @Override
@@ -123,6 +135,8 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         sealed = tag.getBoolean("sealed");
         fuze = tag.getInt("fuze");
         fuzeOnSetoff = tag.getInt("fuzeOnSetoff");
+        maxCharge = tag.getInt("maxCharge");
+        fusesUsed = tag.getInt("fusesUsed");
     }
 
     public static void staticTick(Level level, BlockPos pos, BlockState state, ExplosiveBarrelBlockEntity blockEntity) {

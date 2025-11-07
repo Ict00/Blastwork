@@ -8,7 +8,11 @@
   "jade.blastwork.charge": "Заряд: %d%s",
   "jade.blastwork.extra_charge": "+[%d]",
   "block.blastwork.explosive_barrel": "Взрывная Бочка",
+  "block.blastwork.potion_barrel": "Potion Barrel",
+  "block.blastwork.creative_explosive_barrel": "Творческая Взрывная Бочка",
   "block.blastwork.demolition_barrel": "Сносная Бочка",
+  "block.blastwork.blackpowder_barrel": "Чёрно-Пороховая Бочка",
+  "block.blastwork.tunnel_explosive_barrel": "Бочка для туннелей",
   "block.blastwork.fire_explosive_barrel": "Огненная Бочка",
   "block.blastwork.fluid_barrel": "Жидкостная Бочка",
   "block.blastwork.instant_explosive_barrel": "Красная Бочка",
@@ -26,7 +30,10 @@
   "blastwork.fluid_barrel.full": "Бочка полна",
   "blastwork.fluid_barrel.contains": "Жидкость: %s",
   "blastwork.fluid_barrel.contains_other": "Эта бочка содержит только %s",
-  "item.blastwork.empty_explosive_shell": "Пустой Взрывной Снаряд",
+  "item.blastwork.fuse": "Фитиль",
+  "item.blastwork.empty_blaze_tag": "Пустая Метка",
+  "item.blastwork.blaze_tag": "Метка Всполоха",
+  "item.blastwork.empty_explosive_shell": "Пустой Снаряд",
   "item.blastwork.blaze_gunpowder": "Порох Всполоха",
   "item.blastwork.overheated_powder": "Перегретый Порошок",
   "item.blastwork.overheated_shell": "Перегретый Снаряд",
@@ -43,5 +50,5 @@
   "creativetab.blastwork.blastwork_tab": "Взрывное Дело",
   "blastwork.configuration.newExplosionDamageCalculation": "Использовать метод мода для расчёта урона взрывом",
   "blastwork.configuration.fluidBarrelCapacity": "Вместимость Жидкостной Бочки",
-  "blastwork.configuration.fluidBarrelFluidMovement": "Разрешить жидкостям переливаться вниз по Жидкостным Бочкам"
-}
+  "blastwork.configuration.fluidBarrelFluidMovement": "Разрешить жидкостям переливаться вниз по Жидкостным Бочкам",
+  "blastwork.configuration.blackpowderBarrelParticleCount": "Количество частиц, испускаемых Чёрно-Пороховой Бочкой при взрыве"}

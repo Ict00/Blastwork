@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "blastwork:block/blackpowder_barrel_bottom",
+    "side": "blastwork:block/blackpowder_barrel_side",
+    "top": "blastwork:block/blackpowder_barrel_top"
+  }
+}
