@@ -49,6 +49,7 @@
   "item.blastwork.detonator": "Детонатор",
   "creativetab.blastwork.blastwork_tab": "Взрывное Дело",
   "blastwork.configuration.newExplosionDamageCalculation": "Использовать метод мода для расчёта урона взрывом",
+  "blastwork.configuration.disableItemEntityDamage": "Отключить урон по предметам-сущностям от взрывов",
   "blastwork.configuration.fluidBarrelCapacity": "Вместимость Жидкостной Бочки",
   "blastwork.configuration.fluidBarrelFluidMovement": "Разрешить жидкостям переливаться вниз по Жидкостным Бочкам",
   "blastwork.configuration.blackpowderBarrelParticleCount": "Количество частиц, испускаемых Чёрно-Пороховой Бочкой при взрыве"}

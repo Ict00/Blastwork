@@ -15,6 +15,8 @@ public class Config {
     public static final ModConfigSpec.BooleanValue USE_NEW_EXPLOSION_DAMAGE_SYSTEM =
             BUILDER.define("newExplosionDamageCalculation", true);
 
+    public static final ModConfigSpec.BooleanValue DISABLE_ITEM_ENTITY_DAMAGE =
+            BUILDER.define("disableItemEntityDamage", true);
 
     public static final ModConfigSpec.BooleanValue FLUID_BARREL_FLUID_MOVEMENT =
             BUILDER.define("fluidBarrelFluidMovement", true);

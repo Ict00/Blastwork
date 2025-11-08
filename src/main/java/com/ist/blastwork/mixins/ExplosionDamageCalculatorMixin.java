@@ -3,6 +3,7 @@ package com.ist.blastwork.mixins;
 
 import com.ist.blastwork.Config;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.phys.Vec3;
@@ -21,6 +22,13 @@ public class ExplosionDamageCalculatorMixin {
     )
     private void onGetEntityDamageAmount(Explosion explosion, Entity entity, CallbackInfoReturnable<Float> cir) {
         if (Config.USE_NEW_EXPLOSION_DAMAGE_SYSTEM.get()) {
+            if (Config.DISABLE_ITEM_ENTITY_DAMAGE.get() && entity instanceof ItemEntity) {
+                cir.setReturnValue(0f);
+                cir.cancel();
+                return;
+            }
+
+
             float radius = explosion.radius() * 2.0F;
             Vec3 center = explosion.center();
             double distance = Math.sqrt(entity.distanceToSqr(center));

@@ -49,6 +49,7 @@
   "item.blastwork.detonator": "Detonator",
   "creativetab.blastwork.blastwork_tab": "Blastwork",
   "blastwork.configuration.newExplosionDamageCalculation": "Use Blastwork's explosion damage calculation",
+  "blastwork.configuration.disableItemEntityDamage": "Disable item entity damage on explosion",
   "blastwork.configuration.fluidBarrelCapacity": "Fluid barrel's capacity",
   "blastwork.configuration.blackpowderBarrelParticleCount": "Black-Powder Barrel's particle count",
   "blastwork.configuration.fluidBarrelFluidMovement": "Allow fluid barrels to transfer liquid down to other fluid barrel"
