@@ -2,6 +2,7 @@ package com.ist.blastwork;
 
 import com.ist.blastwork.block.ModBlocks;
 import com.ist.blastwork.block.ModBlockEntities;
+import com.ist.blastwork.block.custom.DemolitioneeringWorkbench.DemolitioneeringWorkbenchBlockEntity;
 import com.ist.blastwork.block.custom.Explosive.GunpowderCharge;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockEntity;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItemWrapper;
@@ -11,8 +12,13 @@ import com.ist.blastwork.other.ModData;
 import com.ist.blastwork.other.ModDataMaps;
 import com.ist.blastwork.other.ModSounds;
 import com.ist.blastwork.other.ModStuff;
+import com.ist.blastwork.recipe.BlueprintRecipe.BlueprintRecipe;
 import com.ist.blastwork.recipe.ModRecipes;
+import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.PlayerAdvancements;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
@@ -92,6 +98,13 @@ public class Blastwork {
                 ModBlockEntities.FLUID_BARREL_BE.get(),
                 FluidBarrelBlockEntity::getCapability
         );
+
+        event.registerBlockEntity(
+                Capabilities.ItemHandler.BLOCK,
+                ModBlockEntities.DEMOLITIONEERING_WORKBENCH_BE.get(),
+                DemolitioneeringWorkbenchBlockEntity::getCapability
+        );
+
         event.registerItem(
                 Capabilities.FluidHandler.ITEM,
                 (itemStack, context) -> new FluidBarrelBlockItemWrapper(itemStack),

@@ -1,6 +1,8 @@
 package com.ist.blastwork.block.custom.ExplosiveBarrel;
 
 import com.ist.blastwork.block.ModBlockEntities;
+import com.ist.blastwork.block.ModBlocks;
+import com.ist.blastwork.block.custom.Explosive.AdvancementGranter;
 import com.ist.blastwork.block.custom.Explosive.IExplosiveBlock;
 import com.ist.blastwork.other.ModSounds;
 import net.minecraft.core.BlockPos;
@@ -8,9 +10,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.level.Explosion;
+import net.minecraft.world.level.ExplosionDamageCalculator;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.*;
 import net.minecraft.world.level.block.state.BlockState;
@@ -23,6 +27,7 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
     protected int charge;
     protected int fusesUsed = 0; // max is 8
     protected boolean sealed = false;
+    protected ExplosionDamageCalculator calculator;
 
     public void setSealed(boolean sealed) {
         this.sealed = sealed;
@@ -193,6 +198,14 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         level.playSound(null, pos.getX(), pos.getY(), pos.getZ(), SoundEvents.GENERIC_EXPLODE.value(), SoundSource.BLOCKS, Math.clamp(getCharge()*4, 4f, 20f), (1f - (float) getCharge() / maxCharge));
         if (level.isClientSide) return;
 
+        if (level.getBlockState(pos).is(ModBlocks.GOLDEN_EXPLOSIVE_BARREL) && reachedMaxSpecialCharge()) {
+            var player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 100, null);
+
+            if (player instanceof ServerPlayer serverPlayer) {
+                AdvancementGranter.grant(serverPlayer, "death");
+            }
+        }
+
         int temp = charge;
         charge = 0;
         setChanged();
@@ -200,7 +213,7 @@ public class ExplosiveBarrelBlockEntity extends BlockEntity implements IExplosiv
         level.explode(
                         null,
                     Explosion.getDefaultDamageSource(level, null),
-                    null,
+                    calculator,
                     pos.getX(),
                     pos.getY(),
                     pos.getZ(),

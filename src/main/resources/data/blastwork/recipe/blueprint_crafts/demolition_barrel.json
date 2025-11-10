@@ -1,0 +1,24 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_nugget"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "blastwork:explosive_barrel"
+    },
+    {
+      "item": "minecraft:gravel"
+    },
+    {
+      "item": "minecraft:iron_nugget"
+    }
+  ],
+  "result": {
+    "id": "blastwork:demolition_barrel",
+    "count": 1
+  }
+}

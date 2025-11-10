@@ -23,8 +23,8 @@ public class ModStuff {
                         output.accept(ModBlocks.EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.DEMOLITION_BARREL_ITEM);
                         output.accept(ModBlocks.BLACKPOWDER_BARREL_ITEM);
-                        output.accept(ModBlocks.GOLDEN_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.DIRECTED_EXPLOSIVE_BARREL_ITEM);
+                        output.accept(ModBlocks.GOLDEN_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.TUNNEL_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.INSTANT_EXPLOSIVE_BARREL_ITEM);
                         output.accept(ModBlocks.POTION_BARREL_ITEM);
@@ -38,6 +38,7 @@ public class ModStuff {
                         output.accept(ModItems.FIRE_SHELL);
                         output.accept(ModItems.EMPTY_EXPLOSIVE_SHELL);
                         output.accept(ModItems.IMPACT_EXPLOSIVE_SHELL);
+                        output.accept(ModItems.BLACKPOWDER_EXPLOSIVE_SHELL);
                         output.accept(ModItems.OVERHEATED_EXPLOSIVE_SHELL);
                         output.accept(ModItems.TIMED_EXPLOSIVE_SHELL);
                         output.accept(ModItems.SMOLDERING_SHELL);
@@ -48,6 +49,8 @@ public class ModStuff {
                         output.accept(ModItems.BLAZE_GUNPOWDER);
                         output.accept(ModItems.OVERHEATED_POWDER);
                         output.accept(ModItems.FUSE_ITEM);
+                        output.accept(ModItems.BLANK_BLUEPRINT);
+                        output.accept(ModItems.QUILL_AND_INK);
                     })
                     .build());
 

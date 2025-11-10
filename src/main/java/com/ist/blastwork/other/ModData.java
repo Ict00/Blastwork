@@ -4,6 +4,7 @@ import com.ist.blastwork.Blastwork;
 import com.mojang.serialization.Codec;
 import net.minecraft.core.component.DataComponentType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
@@ -15,6 +16,9 @@ import java.util.function.Supplier;
 public class ModData {
 
     public static final DeferredRegister<DataComponentType<?>> DATA_COMPONENTS = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, Blastwork.MODID);
+
+    public static final Supplier<DataComponentType<ResourceLocation>> BLUEPRINT_RECIPE_CONTAINER = DATA_COMPONENTS.register("recipe_container",
+            () -> DataComponentType.<ResourceLocation>builder().persistent(ResourceLocation.CODEC).build());
     public static final Supplier<DataComponentType<Integer>> TIME_LEFT_TO_EXPLODE_DATA = DATA_COMPONENTS.register("time_left_to_explode",
             () -> DataComponentType.<Integer>builder().persistent(Codec.INT).build());
 

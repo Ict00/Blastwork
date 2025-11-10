@@ -1,11 +1,13 @@
 package com.ist.blastwork.item.Detonator;
 
+import com.ist.blastwork.block.custom.Explosive.AdvancementGranter;
 import com.ist.blastwork.block.custom.Explosive.IExplosiveBlock;
 import com.ist.blastwork.item.ModItems;
 import com.ist.blastwork.other.ModData;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -56,8 +58,12 @@ public class DetonatorItem extends Item {
                 i++;
             }
 
-            if (!level.isClientSide) {
+            if (!level.isClientSide && i != 0) {
                 itemstack.hurtAndBreak(1, (ServerLevel) level, player, (x) -> { });
+
+                if (i >= 20 && player instanceof ServerPlayer serverPlayer) {
+                    AdvancementGranter.grant(serverPlayer, "in_hell");
+                }
             }
 
             itemstack.set(ModData.DETONATOR_TARGET_DATA, List.of());

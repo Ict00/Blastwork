@@ -3,6 +3,7 @@ package com.ist.blastwork.block;
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.BlackpowderBarrel.BlackpowderBarrelBlockEntity;
 import com.ist.blastwork.block.custom.DemolitionBarrel.DemolitionBarrelBlockEntity;
+import com.ist.blastwork.block.custom.DemolitioneeringWorkbench.DemolitioneeringWorkbenchBlockEntity;
 import com.ist.blastwork.block.custom.DirectedExplosiveBarrel.DirectedExplosiveBarrelBlock;
 import com.ist.blastwork.block.custom.DirectedExplosiveBarrel.DirectedExplosiveBarrelBlockEntity;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
@@ -63,6 +64,11 @@ public class ModBlockEntities {
     public static final Supplier<BlockEntityType<PotionBarrelBlockEntity>> POTION_BARREL_BE =
             BLOCK_ENTITIES.register("potion_barrel_be", () -> BlockEntityType.Builder.of(
                     PotionBarrelBlockEntity::new, ModBlocks.POTION_BARREL.get()
+            ).build(null));
+
+    public static final Supplier<BlockEntityType<DemolitioneeringWorkbenchBlockEntity>> DEMOLITIONEERING_WORKBENCH_BE =
+            BLOCK_ENTITIES.register("demolitioneering_workbench_be", () -> BlockEntityType.Builder.of(
+                    DemolitioneeringWorkbenchBlockEntity::new, ModBlocks.DEMOLITIONEERING_WORKBENCH.get()
             ).build(null));
 
     public static void register(IEventBus bus) {

@@ -1,0 +1,18 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "minecraft:gold_nugget"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "id": "blastwork:empty_explosive_shell",
+    "count": 1
+  }
+}

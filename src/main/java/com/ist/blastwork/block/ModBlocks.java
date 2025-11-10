@@ -3,6 +3,7 @@ package com.ist.blastwork.block;
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.BlackpowderBarrel.BlackpowderBarrelBlock;
 import com.ist.blastwork.block.custom.DemolitionBarrel.DemolitionBarrelBlock;
+import com.ist.blastwork.block.custom.DemolitioneeringWorkbench.DemolitioneeringWorkbenchBlock;
 import com.ist.blastwork.block.custom.DirectedExplosiveBarrel.DirectedExplosiveBarrelBlock;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.CreativeExplosiveBarrelBlock;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlock;
@@ -25,7 +26,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(Blastwork.MODID);
-
+    public static final DeferredBlock<Block> DEMOLITIONEERING_WORKBENCH = BLOCKS.register("demolitioneering_workbench", () -> new DemolitioneeringWorkbenchBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CRAFTING_TABLE)));
     public static final DeferredBlock<Block> EXPLOSIVE_BARREL = BLOCKS.register("explosive_barrel", () -> new ExplosiveBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredBlock<Block> POTION_BARREL = BLOCKS.register("potion_barrel", () -> new PotionBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredBlock<Block> CREATIVE_EXPLOSIVE_BARREL = BLOCKS.register("creative_explosive_barrel", () -> new CreativeExplosiveBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
@@ -38,6 +39,7 @@ public class ModBlocks {
     public static final DeferredBlock<Block> FLUID_BARREL = BLOCKS.register("fluid_barrel", () -> new FluidBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredBlock<Block> DEMOLITION_BARREL = BLOCKS.register("demolition_barrel", () -> new DemolitionBarrelBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.BARREL)));
     public static final DeferredItem<BlockItem> EXPLOSIVE_BARREL_ITEM = ModItems.ITEMS.registerSimpleBlockItem("explosive_barrel", EXPLOSIVE_BARREL);
+    public static final DeferredItem<BlockItem> DEMOLITIONEERING_WORKBENCH_ITEM = ModItems.ITEMS.registerSimpleBlockItem("demolitioneering_workbench", DEMOLITIONEERING_WORKBENCH);
     public static final DeferredItem<BlockItem> POTION_BARREL_ITEM = ModItems.ITEMS.registerSimpleBlockItem("potion_barrel", POTION_BARREL);
     public static final DeferredItem<BlockItem> CREATIVE_EXPLOSIVE_BARREL_ITEM = ModItems.ITEMS.registerSimpleBlockItem("creative_explosive_barrel", CREATIVE_EXPLOSIVE_BARREL);
     public static final DeferredItem<BlockItem> GOLDEN_EXPLOSIVE_BARREL_ITEM = ModItems.ITEMS.registerSimpleBlockItem("golden_explosive_barrel", GOLDEN_EXPLOSIVE_BARREL);

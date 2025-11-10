@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "blastwork:golden_explosive_barrel"
+    },
+    "title": {
+      "translate": "advancement.blastwork.death.title"
+    },
+    "description": {
+      "translate": "advancement.blastwork.death.desc"
+    },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "blastwork:precision_barrel",
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blastwork:fire_explosive_barrel"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

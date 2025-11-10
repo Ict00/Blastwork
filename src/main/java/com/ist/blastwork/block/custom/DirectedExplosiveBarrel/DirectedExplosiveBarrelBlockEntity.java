@@ -99,7 +99,7 @@ public class DirectedExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEnti
                 level.explode(
                         null,
                         Explosion.getDefaultDamageSource(level, null),
-                        null,
+                        calculator,
                         pos.getX() + x,
                         pos.getY() + y,
                         pos.getZ() + z,

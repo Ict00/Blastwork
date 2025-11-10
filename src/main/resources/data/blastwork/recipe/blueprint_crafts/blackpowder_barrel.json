@@ -1,0 +1,18 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "item": "blastwork:explosive_barrel"
+    },
+    {
+      "tag": "minecraft:coals"
+    }
+  ],
+  "result": {
+    "id": "blastwork:blackpowder_barrel",
+    "count": 1
+  }
+}

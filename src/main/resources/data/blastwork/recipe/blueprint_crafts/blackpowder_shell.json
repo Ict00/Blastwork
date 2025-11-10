@@ -1,0 +1,24 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "tag": "minecraft:coals"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "blastwork:empty_copper_shell"
+    },
+    {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    }
+  ],
+  "result": {
+    "id": "blastwork:blackpowder_explosive_shell",
+    "count": 1
+  }
+}

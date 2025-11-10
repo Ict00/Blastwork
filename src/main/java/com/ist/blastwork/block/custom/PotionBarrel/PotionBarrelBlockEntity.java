@@ -4,6 +4,7 @@ import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.Config;
 import com.ist.blastwork.block.ModBlockEntities;
 import com.ist.blastwork.block.custom.BlackpowderBarrel.BlackpowderBarrelBlockEntity;
+import com.ist.blastwork.block.custom.Explosive.AdvancementGranter;
 import com.ist.blastwork.block.custom.ExplosiveBarrel.ExplosiveBarrelBlockEntity;
 import com.ist.blastwork.other.ModSounds;
 import com.mojang.serialization.Codec;
@@ -16,6 +17,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.nbt.Tag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
@@ -118,6 +120,16 @@ public class PotionBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
             for (var i : all) {
                 if (i instanceof LivingEntity entity) {
                     var effect = effects.get(random.nextInt(bound));
+                    if (effect.value().isInstantenous()) {
+                        if (effect.is(MobEffects.HEAL)) {
+                            if (entity instanceof ServerPlayer serverPlayer) {
+                                AdvancementGranter.grant(serverPlayer, "therapy");
+                            }
+                        }
+
+
+                        entity.addEffect(new MobEffectInstance(effect));
+                    }
                     entity.addEffect(new MobEffectInstance(effect, 600));
                 }
             }

@@ -2,11 +2,13 @@ package com.ist.blastwork.block.custom.FluidBarrel;
 
 import com.ist.blastwork.Config;
 import com.ist.blastwork.block.ModBlockEntities;
+import com.ist.blastwork.block.custom.Explosive.AdvancementGranter;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -14,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.capabilities.BlockCapabilityCache;
 import net.neoforged.neoforge.capabilities.Capabilities;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.fluids.FluidStack;
 import net.neoforged.neoforge.fluids.capability.IFluidHandler;
 import net.neoforged.neoforge.fluids.capability.templates.FluidTank;
@@ -27,8 +30,17 @@ public class FluidBarrelBlockEntity extends BlockEntity {
         @Override
         protected void onContentsChanged() {
             setChanged();
-            if (level != null)
+            if (level != null) {
                 level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
+                if (level.dimensionType().ultraWarm() && tank.getFluid().is(Tags.Fluids.WATER)) {
+                    var pos = getBlockPos();
+                    var player = level.getNearestPlayer(pos.getX(), pos.getY(), pos.getZ(), 100, null);
+
+                    if (player instanceof ServerPlayer serverPlayer) {
+                        AdvancementGranter.grant(serverPlayer, "heat_proof");
+                    }
+                }
+            }
         }
 
         @Override

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "minecraft:block/smithing_table_bottom",
+    "east": "blastwork:block/demolitioneering_table_side",
+    "north": "blastwork:block/demolitioneering_table_side",
+    "particle": "blastwork:block/demolitioneering_table_side",
+    "south": "blastwork:block/demolitioneering_table_side",
+    "up": "blastwork:block/demolitioneering_table_top",
+    "west": "blastwork:block/demolitioneering_table_side"
+  }
+}

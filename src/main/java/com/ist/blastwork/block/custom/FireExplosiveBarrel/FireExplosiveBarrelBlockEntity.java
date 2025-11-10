@@ -106,7 +106,7 @@ public class FireExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
             level.explode(
                     null,
                     Explosion.getDefaultDamageSource(level, null),
-                    null,
+                    calculator,
                     pos.getX(),
                     pos.getY(),
                     pos.getZ(),
@@ -121,7 +121,7 @@ public class FireExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
         }
     }
 
-    private static Vector2f getPointsOnCircle(float r, float degrees) {
+    public static Vector2f getPointsOnCircle(float r, float degrees) {
         float rads = (float) Math.toRadians(degrees);
         float x = (float) (r * Math.cos(rads));
         float z = (float) (r * Math.sin(rads));

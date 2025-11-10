@@ -91,7 +91,7 @@ public class BlackpowderBarrelBlockEntity extends ExplosiveBarrelBlockEntity {
         level.explode(
                 null,
                 Explosion.getDefaultDamageSource(level, null),
-                null,
+                calculator,
                 pos.getX(),
                 pos.getY(),
                 pos.getZ(),

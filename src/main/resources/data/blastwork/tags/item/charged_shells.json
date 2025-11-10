@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "blastwork:creative_charged_shell",
+    "blastwork:charged_shell",
+    "blastwork:smoldering",
+    "blastwork:inactive_shell",
+    "blastwork:overheated_shell"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:barrel"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    }
+  ],
+  "result": {
+    "id": "blastwork:explosive_barrel",
+    "count": 1
+  }
+}

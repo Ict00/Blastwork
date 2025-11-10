@@ -1,11 +1,18 @@
 package com.ist.blastwork.item.FilledShell;
 
+import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.ModBlocks;
+import com.ist.blastwork.block.custom.Explosive.AdvancementGranter;
 import com.ist.blastwork.block.custom.FireExplosiveBarrel.FireExplosiveBarrelBlockEntity;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockEntity;
+import net.minecraft.advancements.Advancement;
+import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.ServerAdvancementManager;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
@@ -28,6 +35,11 @@ public class FilledShellItem extends Item {
         if (level.getBlockEntity(context.getClickedPos()) instanceof FluidBarrelBlockEntity entity) {
             if (entity.getCapability(null).getFluidInTank(0).is(Tags.Fluids.LAVA)) {
                 int fireAmount = entity.getCapability(null).getFluidInTank(0).getAmount()/500;
+
+                if (context.getPlayer() instanceof ServerPlayer serverPlayer) {
+                    AdvancementGranter.grant(serverPlayer, "good_demoman");
+                }
+
                 if (!context.getLevel().isClientSide) {
 
                     Direction facing = level.getBlockState(pos).getValue(BlockStateProperties.FACING);

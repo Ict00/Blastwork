@@ -1,0 +1,18 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "item": "blastwork:overheated_powder"
+    },
+    {
+      "item": "blastwork:empty_explosive_shell"
+    },
+    {
+      "item": "blastwork:overheated_powder"
+    }
+  ],
+  "result": {
+    "id": "blastwork:overheated_shell",
+    "count": 1
+  }
+}

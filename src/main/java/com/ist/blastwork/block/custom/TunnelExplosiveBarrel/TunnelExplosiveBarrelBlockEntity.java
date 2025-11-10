@@ -94,7 +94,7 @@ public class TunnelExplosiveBarrelBlockEntity extends ExplosiveBarrelBlockEntity
                 level.explode(
                         null,
                         Explosion.getDefaultDamageSource(level, null),
-                        null,
+                        calculator,
                         pos.getX() + x,
                         pos.getY() + y,
                         pos.getZ() + z,

@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "id": "blastwork:detonator"
+    },
+    "title": {
+      "translate": "advancement.blastwork.in_hell.title"
+    },
+    "description": {
+      "translate": "advancement.blastwork.in_hell.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "blastwork:death",
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blastwork:fire_explosive_barrel"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "id": "blastwork:blackpowder_barrel"
+    },
+    "title": {
+      "translate": "advancement.blastwork.iron_curtain.title"
+    },
+    "description": {
+      "translate": "advancement.blastwork.iron_curtain.desc"
+    },
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "parent": "blastwork:root",
+  "criteria": {
+    "trigger": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "blastwork:blackpowder_barrel"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

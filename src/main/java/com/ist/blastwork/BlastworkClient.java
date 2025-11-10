@@ -1,5 +1,7 @@
 package com.ist.blastwork;
 
+import com.ist.blastwork.block.ModBlockEntities;
+import com.ist.blastwork.block.custom.DemolitioneeringWorkbench.DemolitioneeringWorkbenchBlockRenderer;
 import com.ist.blastwork.entity.ModEntityTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.ItemRenderer;
@@ -27,9 +29,20 @@ public class BlastworkClient {
     }
 
     @SubscribeEvent
+    static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.DEMOLITIONEERING_WORKBENCH_BE.get(),
+                DemolitioneeringWorkbenchBlockRenderer::new);
+    }
+
+    @SubscribeEvent
     static void onClientSetup(EntityRenderersEvent.RegisterRenderers event) {
         event.registerEntityRenderer(
                 ModEntityTypes.IMPACT_EXPLOSIVE_SHELL_ET.get(),
+                ThrownItemRenderer::new
+        );
+
+        event.registerEntityRenderer(
+                ModEntityTypes.BLACKPOWDER_SHELL_ET.get(),
                 ThrownItemRenderer::new
         );
 

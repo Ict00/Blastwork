@@ -2,7 +2,10 @@ package com.ist.blastwork.item;
 
 import com.ist.blastwork.Blastwork;
 import com.ist.blastwork.block.custom.FluidBarrel.FluidBarrelBlockItem;
+import com.ist.blastwork.item.BlackpowderShell.BlackpowderShellItem;
 import com.ist.blastwork.item.BlazeTag.BlazeTagItem;
+import com.ist.blastwork.item.Blueprint.BlankBlueprintItem;
+import com.ist.blastwork.item.Blueprint.BlueprintItem;
 import com.ist.blastwork.item.Detonator.DetonatorItem;
 import com.ist.blastwork.item.FilledShell.FilledShellItem;
 import com.ist.blastwork.item.FireShell.FireShellItem;
@@ -34,9 +37,13 @@ public class ModItems {
     public static final DeferredItem<Item> SMOLDERING_SHELL = ITEMS.register("smoldering_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> CREATIVE_CHARGED_SHELL = ITEMS.register("creative_charged_shell", () -> new FilledShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> IMPACT_EXPLOSIVE_SHELL = ITEMS.register("impact_explosive_shell", () -> new ImpactExplosiveShellItem(new Item.Properties().stacksTo(16)));
+    public static final DeferredItem<Item> BLACKPOWDER_EXPLOSIVE_SHELL = ITEMS.register("blackpowder_explosive_shell", () -> new BlackpowderShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> OVERHEATED_EXPLOSIVE_SHELL = ITEMS.register("overheated_explosive_shell", () -> new OverheatedExplosiveShellItem(new Item.Properties().stacksTo(16)));
     public static final DeferredItem<Item> TIMED_EXPLOSIVE_SHELL = ITEMS.register("timed_explosive_shell", () -> new TimedExplosiveShellItem(new Item.Properties().stacksTo(1)));
     public static final DeferredItem<Item> DETONATOR = ITEMS.register("detonator", () -> new DetonatorItem(new Item.Properties().stacksTo(1).durability(32)));
+    public static final DeferredItem<Item> BLUEPRINT = ITEMS.register("blueprint", () -> new BlueprintItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> BLANK_BLUEPRINT = ITEMS.register("blank_blueprint", () -> new BlankBlueprintItem(new Item.Properties().stacksTo(1)));
+    public static final DeferredItem<Item> QUILL_AND_INK = ITEMS.registerSimpleItem("quill_and_ink", new Item.Properties().stacksTo(1).durability(16));
     public static final DeferredItem<BlockItem> FLUID_BARREL_ITEM = ModItems.ITEMS.register("fluid_barrel", () -> new FluidBarrelBlockItem(FLUID_BARREL.get(), new Item.Properties()));
 
     public static void register(IEventBus bus) {

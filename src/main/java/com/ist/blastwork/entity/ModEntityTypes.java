@@ -1,6 +1,7 @@
 package com.ist.blastwork.entity;
 
 import com.ist.blastwork.Blastwork;
+import com.ist.blastwork.item.BlackpowderShell.BlackpowderShellItemThrown;
 import com.ist.blastwork.item.FireShell.FireShellItemThrown;
 import com.ist.blastwork.item.ImpactExplosiveShell.ImpactExplosiveShellThrown;
 import com.ist.blastwork.item.OverheatedExplosiveShell.OverheatedExplosiveShellThrown;
@@ -32,6 +33,10 @@ public class ModEntityTypes {
     public static final Supplier<EntityType<TimedExplosiveShellThrown>> TIMED_EXPLOSIVE_SHELL_ET = ENTITY_TYPES.register(
             "timed_explosive_shell", () -> EntityType.Builder.<TimedExplosiveShellThrown>of(TimedExplosiveShellThrown::new, MobCategory.MISC)
                     .sized(0.2f, 0.2f).build("timed_explosive_shell"));
+
+    public static final Supplier<EntityType<BlackpowderShellItemThrown>> BLACKPOWDER_SHELL_ET = ENTITY_TYPES.register(
+            "blackpowder_explosive_shell", () -> EntityType.Builder.<BlackpowderShellItemThrown>of(BlackpowderShellItemThrown::new, MobCategory.MISC)
+                    .sized(0.2f, 0.2f).build("blackpowder_explosive_shell"));
 
     public static void register(IEventBus bus) {
         ENTITY_TYPES.register(bus);

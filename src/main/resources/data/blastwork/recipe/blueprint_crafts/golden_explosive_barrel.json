@@ -1,0 +1,21 @@
+{
+  "type": "blastwork:blueprint_recipe",
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ingot"
+    },
+    {
+      "item": "blastwork:explosive_barrel"
+    },
+    {
+      "item": "minecraft:clock"
+    },
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  ],
+  "result": {
+    "id": "blastwork:golden_explosive_barrel",
+    "count": 1
+  }
+}

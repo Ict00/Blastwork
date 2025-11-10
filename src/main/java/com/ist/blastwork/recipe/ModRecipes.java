@@ -1,6 +1,7 @@
 package com.ist.blastwork.recipe;
 
 import com.ist.blastwork.Blastwork;
+import com.ist.blastwork.recipe.BlueprintRecipe.BlueprintRecipe;
 import com.ist.blastwork.recipe.FluidBarrelRecipe.FluidBarrelRecipe;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -21,11 +22,22 @@ public class ModRecipes {
     public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<FluidBarrelRecipe>> FLUID_BARREL_RECIPE_SERIALIZER =
             SERIALIZERS.register("fluid_barrel_recipe", FluidBarrelRecipe.FB_Serializer::new);
 
+    public static final DeferredHolder<RecipeSerializer<?>, RecipeSerializer<BlueprintRecipe>> BLUEPRINT_RECIPE_SERIALIZER =
+            SERIALIZERS.register("blueprint_recipe", BlueprintRecipe.BlueprintR_Serializer::new);
+
     public static final DeferredHolder<RecipeType<?>, RecipeType<FluidBarrelRecipe>> FLUID_BARREL_RECIPE_TYPE =
             TYPES.register("fluid_barrel_recipe", () -> new RecipeType<FluidBarrelRecipe>() {
                 @Override
                 public String toString() {
                     return "fluid_barrel_recipe";
+                }
+            });
+
+    public static final DeferredHolder<RecipeType<?>, RecipeType<BlueprintRecipe>> BLUEPRINT_RECIPE_TYPE =
+            TYPES.register("blueprint_recipe", () -> new RecipeType<BlueprintRecipe>() {
+                @Override
+                public String toString() {
+                    return "blueprint_recipe";
                 }
             });
 
